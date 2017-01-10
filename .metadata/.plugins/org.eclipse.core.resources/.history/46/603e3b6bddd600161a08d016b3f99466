@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +48,7 @@ public class UserTest {
 		user.setEmail("abbas886@yahoo.com");
 		user.setAddress("Hydrabad");
 		
-		Assert.assertEquals("Save test case",userDao.save(user), true);
+		assertEquals("addusertest",userDao.save(user),true);
 		
 	}
 	/*@Test
@@ -84,7 +83,7 @@ public class UserTest {
 		
 		user=userDao.get("CG01");
 		
-		Assert.assertEquals("User get test case",user.getName(),"Md Abbas");
+		assertEquals(user.getName(),"Md Abbas");
 		
 		
 	}

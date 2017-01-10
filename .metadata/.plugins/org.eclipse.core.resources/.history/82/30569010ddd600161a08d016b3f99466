@@ -4,17 +4,13 @@ package com.niit.cakenationbackend;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
-
 import org.hibernate.SessionFactory;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.cakenationbackend.dao.UserDAO;
-import com.niit.cakenationbackend.model.Category;
 import com.niit.cakenationbackend.model.User;
 
 public class UserTest {
@@ -49,45 +45,8 @@ public class UserTest {
 		user.setEmail("abbas886@yahoo.com");
 		user.setAddress("Hydrabad");
 		
-		Assert.assertEquals("Save test case",userDao.save(user), true);
+		assertEquals("addusertest",userDao.save(user),true);
 		
 	}
-	/*@Test
-	public void deleteUserTestCase()
-	{
-		user.setUserid("AbbasSir");
-		user.setName("Md Abbas");
-		user.setRole("ROLE_ADMIN");
-		user.setPassword("abbassir");
-		user.setMobile("9877756780");
-		user.setEmail("abbas886@yahoo.com");
-		user.setAddress("Hydrabad");
-	
-	assertEquals("deleteUserTestCase",userDao.delete(user),true);
-
-	}*/
-	
-	@Test
-	public void listCategoryTestCase()
-	{
-		
-		List<User> listuser=userDao.list();
-		int rowcount=listuser.size();
-		assertEquals("listuserTestCase",rowcount,2);
-		
-		
-	}
-	
-	@Test
-	public void getUserTestCase()
-	{
-		
-		user=userDao.get("CG01");
-		
-		Assert.assertEquals("User get test case",user.getName(),"Md Abbas");
-		
-		
-	}
-	
 	
 }
