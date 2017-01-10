@@ -5,14 +5,66 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Category</title>
+<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/bootstrap-responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
 
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="resources/js/superfish.js"></script>
+
+<script type="text/javascript" src="resources/js/jquery.ui.totop.js"></script>
+
+<script type="text/javascript" src="resources/js/cform.js"></script>
+
+<script>
+$(document).ready(function() {
+	//
+
+
+
+
+
+}); //
+$(window).load(function() {
+	//
+
+}); //
+</script>
 </head>
-
 <body>
-<%@ include file="header.jsp"%>
+<jsp:include page="header.jsp"></jsp:include>
+<div class="top2_wrapper">
+<div class="container">
+<div class="row">
+<div class="span12">
+
+<div class="top2 clearfix">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="h1_wrapper">
+<div class="">
+<div class="">
+<div class="clearfix">
+<div class="h1_inner">
+<h1>Categories</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+
 <br>
 <br>
 <br>
@@ -20,15 +72,15 @@
 <div  >
 <spring:form method="POST" action="${pageContext.request.contextPath}/addCategory" commandName="category">
 
-<table>
+<table allign="center">
            
-<h2 >Here Admin Add All Category</h2>
+<h2 ><strong>Here Admin Add All Category</strong></h2>
 				
 			
     <tr>
        
         <c:choose>
-         <c:when test="${not empty category.name} ">
+         <c:when test="${not empty category.category_name} ">
           <td><spring:label path="category_id"><springtags:message text="CategoryID:"></springtags:message></spring:label></td>
           <td><spring:input path="category_id" disabled="true" readonly="true" /></td>
          </c:when>

@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\CakeNationWS\CakeNationBackEnd\src\main\java\com\niit\cakenationbackend\dao\UserDAO.java"/>
 			<item value="D:\CakeNationWS\CakeNationBackEnd\src\main\java\com\niit\cakenationbackend\config\ApplicationContextConfig.java"/>
 			<item value="D:\CakeNationWS\Servers"/>
 			<item value="D:\CakeNationWS\CakeNationBackEnd"/>
@@ -59,15 +60,15 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.niit.cakenation"/>
-			<item value="com.niit.cakenationfe"/>
+			<item value="com.niit.cakenationfront"/>
+			<item value="com.niit.cakenationfrontend"/>
 		</list>
 		<list key="groupId">
 			<item value="com.niit"/>
 		</list>
 		<list key="artifactId">
-			<item value="CakeNation"/>
-			<item value="CakeNationFE"/>
+			<item value="CakeNationFront"/>
+			<item value="CakeNationFrontEnd"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

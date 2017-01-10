@@ -9,20 +9,5 @@ public class HomeController {
 	public String getHome(){
 		return "home";
 	}
-	@RequestMapping("/contact")
-	public String getContact(){
-		return "contact";
-	}
-	@RequestMapping("/about")
-	public String getAbout(){
-		return "about";
-	}
-	@RequestMapping("/items")
-	public String getItems(){
-		return "gallery";
-	}
-
-	
-	
 
 }
