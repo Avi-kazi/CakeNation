@@ -22,10 +22,7 @@ public class HomeController {
 		return "gallery";
 	}
 
-	@RequestMapping("/login")
-	public String getLogin(){
-		return "login";
-	}
+	
 	
 
 }

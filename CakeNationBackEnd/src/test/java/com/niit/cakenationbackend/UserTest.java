@@ -82,7 +82,7 @@ public class UserTest {
 	public void getUserTestCase()
 	{
 		
-		user=userDao.get("CG01");
+		user=userDao.get("AbbasSir");
 		
 		Assert.assertEquals("User get test case",user.getName(),"Md Abbas");
 		

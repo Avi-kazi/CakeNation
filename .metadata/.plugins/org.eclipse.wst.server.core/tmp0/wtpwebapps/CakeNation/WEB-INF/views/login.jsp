@@ -67,7 +67,7 @@ $(window).load(function() {
 
 <div class="container">
  <h2><strong>Please login valid credencials</h2>
-  <form>
+  <form action="validate">
     <div class="form-group">
       <label class="control-label col-sm-7" for="email">Email:</label>
       <div class="col-sm-7">

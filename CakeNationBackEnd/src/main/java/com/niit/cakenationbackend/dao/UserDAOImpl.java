@@ -5,7 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
-
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -38,11 +38,18 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Transactional
-	public void delete(String userid) {
+	public boolean delete(String userid) {
 		// TODO Auto-generated method stub
-		User user = new User();
-		user.setUserid(userid);
-		sessionFactory.getCurrentSession().delete(user);
+		try {
+			User user = new User();
+			user.setUserid(userid);
+			sessionFactory.getCurrentSession().delete(user);
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 	@Transactional
@@ -54,24 +61,28 @@ public class UserDAOImpl implements UserDAO{
 		return (User)query.uniqueResult();
 	}
 	@Transactional
-	public void save(User user) {
+	public boolean save(User user) {
 		// TODO Auto-generated method stub
 		
 		try {
 			sessionFactory.getCurrentSession().save(user);
+			return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 	}
 	@Transactional
-	public void update(User user) {
+	public boolean update(User user) {
 		// TODO Auto-generated method stub
 		try {
 			sessionFactory.getCurrentSession().update(user);
+			return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 		
 	}
