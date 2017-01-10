@@ -1,0 +1,52 @@
+package com.niit.cakenationbackend;
+
+
+
+import static org.junit.Assert.*;
+
+import org.hibernate.SessionFactory;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.niit.cakenationbackend.dao.UserDAO;
+import com.niit.cakenationbackend.model.User;
+
+public class UserTest {
+	@Autowired
+	static UserDAO userDao;
+	
+	@Autowired
+	static User user;
+	
+	static AnnotationConfigApplicationContext context;
+	@Autowired
+	static private SessionFactory sessionFactory;
+
+	
+	@BeforeClass
+	public static void init(){
+	
+	context=new AnnotationConfigApplicationContext();
+	context.scan("com.niit.cakenationbackend");
+	context.refresh();
+	userDao= (UserDAO) context.getBean("userDao");
+	user= (User)context.getBean("user");
+	
+	}
+	@Test
+	public void addUserTest(){
+		user.setUserid("AbbasSir");
+		user.setName("Md Abbas");
+		user.setRole("ROLE_ADMIN");
+		user.setPassword("abbassir");
+		user.setMobile("9877756780");
+		user.setEmail("abbas886@yahoo.com");
+		user.setAddress("Hydrabad");
+		
+		assertEquals("addusertest",userDao.save(user),true);
+		
+	}
+	
+}

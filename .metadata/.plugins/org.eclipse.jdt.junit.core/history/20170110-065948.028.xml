@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryTest" project="CakeNationBackEnd" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.niit.cakenationbackend.CategoryTest" time="0.705">
+    <testcase name="addCategoryTestCase" classname="com.niit.cakenationbackend.CategoryTest" time="0.705"/>
+  </testsuite>
+</testrun>

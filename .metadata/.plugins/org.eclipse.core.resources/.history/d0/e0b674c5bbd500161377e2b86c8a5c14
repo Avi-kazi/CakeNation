@@ -1,0 +1,5 @@
+package com.niit.cakenationbackend.model;
+
+public class Product {
+
+}

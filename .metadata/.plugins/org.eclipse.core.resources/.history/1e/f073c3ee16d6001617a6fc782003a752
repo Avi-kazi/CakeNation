@@ -1,0 +1,41 @@
+package com.niit.cakenationbackend.dao;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import com.niit.cakenationbackend.model.Supplier;
+@Repository("supplierDao")
+public class SupplierDAOImpl implements SupplierDAO{
+@Transactional
+	public List<Supplier> list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+@Transactional
+	public Supplier get(String supplier_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+@Transactional
+	public boolean save(Supplier supplier) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+@Transactional
+	public boolean update(Supplier supplier) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+@Transactional
+	public boolean delete(Supplier supplier) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+@Transactional
+	public Supplier getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

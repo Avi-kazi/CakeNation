@@ -1,0 +1,14 @@
+package com.niit.cakenationbackend.dao;
+
+public interface UserDAO {
+	public List<User> list();
+
+	public User get(String userid);
+	
+	public void saveOrUpdate(User user);
+
+	public void delete(String id);
+	
+	public User isValidUser(String userid, String password);
+
+}

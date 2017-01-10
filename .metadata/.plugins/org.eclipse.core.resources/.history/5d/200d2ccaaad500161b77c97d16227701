@@ -1,0 +1,20 @@
+package com.niit.cakenationbackend.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+@Entity
+@Table
+@Component
+public class Supplier {
+	@Id
+	private String supplier_id;
+	
+	private String supplier_name;
+	
+	private String supplier_address;
+	
+}

@@ -1,0 +1,42 @@
+package com.niit.cakenationbackend.dao;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.niit.cakenationbackend.model.Product;
+
+public class ProductDAOImpl implements ProductDAO {
+	@Autowired
+	private SessionFactory sessionFactory;
+	public List<Product> list() {
+		// TODO Auto-generated method stub
+		@SuppressWarnings("unchecked")
+		List<Product> listProduct = (List<Product>) sessionFactory.getCurrentSession().createCriteria(Product.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listProduct;
+	}
+
+	public Product get(String productid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean save(Product product) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean update(Product product) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean delete(Product product) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
