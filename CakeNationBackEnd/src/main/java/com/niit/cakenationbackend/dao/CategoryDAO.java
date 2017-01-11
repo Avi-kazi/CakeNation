@@ -15,6 +15,7 @@ public interface CategoryDAO {
 	public boolean delete(Category category);
 	public Category getByName(String category_name);
 	public List<String> categoryNameList();
+	public boolean saveOrUpdate(Category category);
 
 
 }

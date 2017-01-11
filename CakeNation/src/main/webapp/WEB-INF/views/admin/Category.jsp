@@ -104,12 +104,12 @@ $(window).load(function() {
     
     <tr>
         			<td>
-        			<c:if test="${empty category.category_id}">
+        			<c:if test="${empty category.category_name}">
 						<input type="submit"class="btn btn-info" value="<springtags:message text="Add Category"/>" />
 					</c:if>
 					</td>
        				
-       				<c:if test="${not empty category.category_id}">
+       				<c:if test="${not empty category.category_name}">
 					<td>	
 					<input type="submit" class="btn btn-info"value="<springtags:message text="Edit Category"/>" />
 					

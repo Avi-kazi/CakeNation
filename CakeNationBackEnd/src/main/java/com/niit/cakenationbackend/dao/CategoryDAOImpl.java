@@ -84,12 +84,21 @@ public List<String> categoryNameList() {
 	// TODO Auto-generated method stub
 	String hql = "select name from Category";
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
-	List<String> listCategory = query.list();
-	/*for (Category aCategory : listCategory) {
-	    System.out.println(aCategory.getName());
-	}*/
-	return listCategory;
 	
+	
+	return query.list();
+	
+}
+public boolean saveOrUpdate(Category category) {
+	// TODO Auto-generated method stub
+	try {
+		sessionFactory.getCurrentSession().saveOrUpdate(category);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
+	}
+		return true;
 }
 
 }

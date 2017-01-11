@@ -27,7 +27,7 @@ public class CategoryController {
 	@RequestMapping(value = "/categories", method = RequestMethod.GET)
 	public String getCategory(Model model) {
 
-		log.info("entering showAllGreetings");
+		log.debug("entering showAllGreetings");
 		model.addAttribute("category", new Category());
 
 		List<Category> categories = categoryDao.list();
@@ -35,23 +35,23 @@ public class CategoryController {
 
 			model.addAttribute("categorylist", categories);
 		}
-		log.info("ending AllGreetings");
+		log.debug("ending AllGreetings");
 		return "admin/Category";
 	}
 
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
 	public String addCategory(@ModelAttribute("category") Category category) {
-		log.info("starting add category");
+		log.debug("starting add category");
 		//System.out.println("test controll");
 		categoryDao.save(category);
-		log.info("ending add category");
+		log.debug("ending add category");
 		return "redirect:/categories";
 
 	}
 
 	@RequestMapping(value = "delete/{category_id}", method = RequestMethod.GET)
 	public String deleteCategory(@PathVariable("category_id")  String id, ModelMap model) {
-		log.info("start to delete category");
+		log.debug("start to delete category");
 		Category category=categoryDao.get(id);
         if(category!=null){
 		categoryDao.delete(category);
@@ -60,17 +60,17 @@ public class CategoryController {
         else{
 			model.addAttribute("msg","Category does not exist");
         }
-        log.info("deleted successfully");
+        log.debug("deleted successfully");
 		return "redirect:/categories";
 	}
 
 	@RequestMapping(value = "edit/{category_id}")
 	public String showEditCategory(@PathVariable("category_id") String id, Model model) {
-		log.info("Updated category");
+		log.debug("Updated category");
 		
 		model.addAttribute("category", this.categoryDao.get(id));
-		model.addAttribute("categoryupdate", categoryDao.update(category));
-		log.info("ending udated category");
+		model.addAttribute("categoryupdate", categoryDao.saveOrUpdate(category));
+		log.debug("ending udated category");
 		return "admin/Category";
 	}
 	

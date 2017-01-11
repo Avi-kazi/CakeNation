@@ -27,7 +27,7 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 	@RequestMapping(value = "/suppliers", method = RequestMethod.GET)
 	public String getSupplier(Model model) {
 
-		log.info("entering showAllGreetings");
+		log.debug("entering showAllGreetings");
 		
 		model.addAttribute("supplier", new Supplier());
 
@@ -36,13 +36,13 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 
 			model.addAttribute("supplierlist", suppliers);
 		}
-		 log.info("ending AllGreetings");
+		 log.debug("ending AllGreetings");
 		return "admin/Supplier";
 	}
 
 	@RequestMapping(value = "/addSupplier", method = RequestMethod.POST)
 	public String addSupplier(@ModelAttribute("supplier") Supplier supplier) {
-		log.info("entering showAllGreetings");
+		log.debug("addcategory");
 
 		Supplier existingsupplier=supplierDao.get(supplier.getSupplier_id());
 		
@@ -54,14 +54,14 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 			supplierDao.save(supplier);
 
 		}
-		 log.info("ending AllGreetings");
+		 log.debug("after ending category");
 		return "redirect:/suppliers";
 
 	}
 
 	@RequestMapping(value = "/deleteSupplier/{supplier_id}", method = RequestMethod.GET)
 	public String deleteSupplier(@PathVariable("supplier_id") String id, ModelMap model) {
-		log.info("Starting Delete");
+		log.debug("Starting Delete");
 
 		Supplier supplier=supplierDao.get(id);
         if(supplier!=null){
@@ -71,17 +71,17 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
         else{
 			model.addAttribute("msg","Category does not exist");
         }
-        log.info("deleted successfully");
+        log.debug("deleted successfully");
 		return "redirect:/suppliers";
 	}
 	
 	@RequestMapping(value = "/editSupplier/{supplier_id}" ,method=RequestMethod.GET)
 	public String showEditCategory(@PathVariable("supplier_id") String id, Model model) {
-		log.info("Strting updated");
+		log.debug("Strting updated");
 		
 		model.addAttribute("supplier", this.supplierDao.get(id));
 		model.addAttribute("supplierlist", supplierDao.list());
-		 log.info("ending updated");
+		 log.debug("ending updated");
 		return "admin/Supplier";
 	}
 }
