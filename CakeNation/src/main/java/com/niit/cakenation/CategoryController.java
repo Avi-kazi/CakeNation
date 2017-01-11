@@ -21,6 +21,8 @@ public class CategoryController {
 	Logger log = LoggerFactory.getLogger(CategoryController.class);
 	@Autowired
 	private CategoryDAO categoryDao;
+	@Autowired
+	private Category category;
 
 	@RequestMapping(value = "/categories", method = RequestMethod.GET)
 	public String getCategory(Model model) {
@@ -39,16 +41,17 @@ public class CategoryController {
 
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
 	public String addCategory(@ModelAttribute("category") Category category) {
-		log.info("entering showAllGreetings");
+		log.info("starting add category");
 		//System.out.println("test controll");
 		categoryDao.save(category);
+		log.info("ending add category");
 		return "redirect:/categories";
 
 	}
 
 	@RequestMapping(value = "delete/{category_id}", method = RequestMethod.GET)
 	public String deleteCategory(@PathVariable("category_id")  String id, ModelMap model) {
-		log.info("entering showAllGreetings");
+		log.info("start to delete category");
 		Category category=categoryDao.get(id);
         if(category!=null){
 		categoryDao.delete(category);
@@ -57,17 +60,17 @@ public class CategoryController {
         else{
 			model.addAttribute("msg","Category does not exist");
         }
-        log.info("ending AllGreetings");
+        log.info("deleted successfully");
 		return "redirect:/categories";
 	}
 
 	@RequestMapping(value = "edit/{category_id}")
 	public String showEditCategory(@PathVariable("category_id") String id, Model model) {
-		log.info("entering showAllGreetings");
+		log.info("Updated category");
 		
 		model.addAttribute("category", this.categoryDao.get(id));
-		model.addAttribute("categorylist", categoryDao.list());
-		log.info("ending AllGreetings");
+		model.addAttribute("categoryupdate", categoryDao.update(category));
+		log.info("ending udated category");
 		return "admin/Category";
 	}
 	

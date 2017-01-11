@@ -8,6 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>supplier</title>
+<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/bootstrap-responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
+
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="resources/js/superfish.js"></script>
@@ -54,13 +58,16 @@ $(window).load(function() {
 <div class="">
 <div class="clearfix">
 <div class="h1_inner">
-<h1>Admin Supplier</h1>
+<h1>Suppliers</h1>
 </div>
 </div>
 </div>
 </div>
 </div>
 <br>
+<br>
+<br>
+
 <br>
 <br>
 
@@ -135,7 +142,7 @@ $(window).load(function() {
 							<td>${supplier.supplier_name}</td>
 							<td>${supplier.supplier_address}</td>
 							<td><a href="${pageContext.request.contextPath}/editSupplier/${supplier.supplier_id}">Edit</a></td>
-							<td><a href="deleteSupplier/${supplier.supplier_id}">Delete</a></td>
+							<td><a href="${pageContext.request.contextPath}/deleteSupplier/${supplier.supplier_id}">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

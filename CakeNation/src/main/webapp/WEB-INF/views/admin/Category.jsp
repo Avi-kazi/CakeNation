@@ -72,9 +72,9 @@ $(window).load(function() {
 <div  >
 <spring:form method="POST" action="${pageContext.request.contextPath}/addCategory" commandName="category">
 
-<table allign="center">
+<table  cellpadding="5" cellspacing="5"  align="center">
            
-<h2 ><strong>Here Admin Add All Category</strong></h2>
+           <h2>Here Admin Add All Category</h2>
 				
 			
     <tr>
@@ -127,7 +127,7 @@ $(window).load(function() {
 </div>
 <div class="container">
 <table class="table table-striped table-bordered table-hover table-condensed">
-    <caption><h2><b>Category Details</b></h2></caption>
+    <h2 allign="center"><b>Category Details</b></h2>
     <thead>
       <tr>
       <th>Category ID</th>
@@ -144,7 +144,7 @@ $(window).load(function() {
 			<td>${category.category_id}</td>
 			<td>${category.category_name}</td>
 			<td>${category.category_description} </td>
-			<td><a href="edit/${category.category_id}">Edit</a> </td>
+			<td><a href="${pageContext.request.contextPath}/edit/${category.category_id}">Edit</a></td>
 			<td><a href="delete/${category.category_id}">Delete</a> </td>
 			</tr>		
 			</c:forEach>
