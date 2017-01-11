@@ -34,7 +34,7 @@ public class CategoryController {
 			model.addAttribute("categorylist", categories);
 		}
 		log.info("ending AllGreetings");
-		return "Category";
+		return "admin/Category";
 	}
 
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
@@ -68,7 +68,7 @@ public class CategoryController {
 		model.addAttribute("category", this.categoryDao.get(id));
 		model.addAttribute("categorylist", categoryDao.list());
 		log.info("ending AllGreetings");
-		return "Category";
+		return "admin/Category";
 	}
 	
 }
