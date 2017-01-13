@@ -15,30 +15,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class Category {
 	@Id
-	private String category_id;
+	@Column(name="category_id")
+	private String id;
 	@Column(name="NAME")
-	private String category_name;
-	@Column(name="DESCRIPTION")
-	private String category_description;
-	@OneToMany(mappedBy="category" ,fetch = FetchType.EAGER)
-	public Set<Product> products;
-	public Set<Product> getProducts() {
-		return products;
+	private String name;
+	public String getId() {
+		return id;
 	}
-	public void setProducts(Set<Product> products) {
-		this.products = products;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getCategory_id() {
-		return category_id;
+	public String getName() {
+		return name;
 	}
-	public void setCategory_id(String category_id) {
-		this.category_id = category_id;
-	}
-	public String getCategory_name() {
-		return category_name;
-	}
-	public void setCategory_name(String category_name) {
-		this.category_name = category_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getCategory_description() {
 		return category_description;
@@ -46,5 +37,15 @@ public class Category {
 	public void setCategory_description(String category_description) {
 		this.category_description = category_description;
 	}
-
+	public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+	@Column(name="DESCRIPTION")
+	private String category_description;
+	@OneToMany(mappedBy="category" ,fetch = FetchType.EAGER)
+	public Set<Product> products;
+	
 }

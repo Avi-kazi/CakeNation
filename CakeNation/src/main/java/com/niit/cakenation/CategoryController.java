@@ -40,40 +40,45 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
-	public String addCategory(@ModelAttribute("category") Category category) {
+	public String addCategory(@ModelAttribute("category") Category category, Model model) {
 		log.debug("starting add category");
-		//System.out.println("test controll");
-		categoryDao.save(category);
-		log.debug("ending add category");
+		Category existingcategory = categoryDao.get(category.getId());
+
+		if (existingcategory != null && existingcategory.getId().equals(category.getId())) {
+
+			categoryDao.update(category);
+		} else {
+			categoryDao.save(category);
+
+		}
+		log.debug("after ending category");
 		return "redirect:/categories";
 
 	}
 
-	@RequestMapping(value = "delete/{category_id}", method = RequestMethod.GET)
-	public String deleteCategory(@PathVariable("category_id")  String id, ModelMap model) {
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	public String deleteCategory(@PathVariable("id") String id, ModelMap model) {
 		log.debug("start to delete category");
-		Category category=categoryDao.get(id);
-        if(category!=null){
-		categoryDao.delete(category);
-		model.addAttribute("msg","Successfully Deleted");
-        }
-        else{
-			model.addAttribute("msg","Category does not exist");
-        }
-        log.debug("deleted successfully");
+		Category category = categoryDao.get(id);
+		if (category != null) {
+			categoryDao.delete(category);
+			model.addAttribute("msg", "Successfully Deleted");
+		} else {
+			model.addAttribute("msg", "Category does not exist");
+		}
+		log.debug("deleted successfully");
 		return "redirect:/categories";
 	}
 
-	@RequestMapping(value = "edit/{category_id}")
-	public String showEditCategory(@PathVariable("category_id") String id, Model model) {
+	@RequestMapping(value = "edit/{id}")
+	public String showEditCategory(@PathVariable("id") String id, Model model) {
 		log.debug("Updated category");
-		
+
 		model.addAttribute("category", this.categoryDao.get(id));
-		model.addAttribute("categoryupdate", categoryDao.saveOrUpdate(category));
+		model.addAttribute("categorylist", categoryDao.list());
+
 		log.debug("ending udated category");
 		return "admin/Category";
 	}
-	
+
 }
-
-

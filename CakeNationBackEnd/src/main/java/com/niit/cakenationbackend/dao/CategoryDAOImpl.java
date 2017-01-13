@@ -24,9 +24,9 @@ private SessionFactory sessionFactory;
 		return query.list();
 	}
 @Transactional
-	public Category get(String category_id) {
+	public Category get(String id) {
 		// TODO Auto-generated method stub
-		return (Category) sessionFactory.getCurrentSession().get(Category.class, category_id);
+		return (Category) sessionFactory.getCurrentSession().get(Category.class, id);
 	}
 @Transactional
 	public boolean save(Category category) {
@@ -65,9 +65,9 @@ private SessionFactory sessionFactory;
 		return true;
 	}
 @Transactional
-public Category getByName(String category_name) {
+public Category getByName(String name) {
 	// TODO Auto-generated method stub
-	String hql = "from Category where name=" + "'"+ category_name +"'";
+	String hql = "from Category where name=" + "'"+ name +"'";
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
 	
 	@SuppressWarnings("unchecked")
@@ -88,17 +88,6 @@ public List<String> categoryNameList() {
 	
 	return query.list();
 	
-}
-public boolean saveOrUpdate(Category category) {
-	// TODO Auto-generated method stub
-	try {
-		sessionFactory.getCurrentSession().saveOrUpdate(category);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		return false;
-	}
-		return true;
 }
 
 }

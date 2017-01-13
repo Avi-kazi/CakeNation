@@ -42,8 +42,8 @@ public class CategoryTest {
 	public void addCategoryTestCase()
 	{
 		
-		category.setCategory_id("CG01");
-		category.setCategory_name("BirthDay Cakes");
+		category.setId("CG01");
+		category.setName("BirthDay Cakes");
 		category.setCategory_description("Chocotruffle-Cake");
 	
 	assertEquals("addcategorytestcase",categoryDao.save(category),true);
@@ -78,7 +78,7 @@ public class CategoryTest {
 		
 		category=categoryDao.get("CG01");
 		
-		assertEquals(category.getCategory_name(),"BirthDay Cakes");
+		assertEquals(category.getName(),"BirthDay Cakes");
 		
 		
 	}

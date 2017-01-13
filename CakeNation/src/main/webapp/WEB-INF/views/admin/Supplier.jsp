@@ -8,9 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>supplier</title>
-<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="screen">
-<link rel="stylesheet" href="resources/css/bootstrap-responsive.css" type="text/css" media="screen">
-<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css' type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css' type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css" media="screen">
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>

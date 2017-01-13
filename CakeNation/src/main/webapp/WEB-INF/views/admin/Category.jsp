@@ -5,9 +5,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="screen">
-<link rel="stylesheet" href="resources/css/bootstrap-responsive.css" type="text/css" media="screen">
-<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css' type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css' type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css" media="screen">
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
@@ -71,29 +71,27 @@ $(window).load(function() {
 
 <div  >
 <spring:form method="POST" action="${pageContext.request.contextPath}/addCategory" commandName="category">
-
-<table  cellpadding="5" cellspacing="5"  align="center">
-           
-           <h2>Here Admin Add All Category</h2>
+ <table   align="center">
+			<h2 align="center">Here Admin add all Products</h2>
 				
 			
     <tr>
        
         <c:choose>
-         <c:when test="${not empty category.category_name} ">
-          <td><spring:label path="category_id"><springtags:message text="CategoryID:"></springtags:message></spring:label></td>
-          <td><spring:input path="category_id" disabled="true" readonly="true" /></td>
+         <c:when test="${not empty category.id} ">
+          
+          <td><spring:input path="id" readonly="true"/></td>
          </c:when>
          <c:otherwise>
-         	<td><spring:label path="category_id"><strong><springtags:message text="CategoryID"></springtags:message></strong></spring:label></td>
-         	<td><spring:input path="category_id" /></td>
+         	<td><spring:label path="id"><strong><springtags:message text="CategoryID"></springtags:message></strong></spring:label></td>
+         	<td><spring:input path="id"  pattern=".{3,10}" required="true" title="id should contains 3 to 10characters"/></td>
          </c:otherwise>
     	</c:choose>
    <%--  <spring:input path="id" hidden="true"  /> --%>
     </tr>
     <tr>
-        <td><spring:label path="category_name"><strong><springtags:message text="Category Name"></springtags:message></strong></spring:label></td>
-        <td><spring:input path="category_name" /></td>
+        <td><spring:label path="name"><strong><springtags:message text="Category Name"></springtags:message></strong></spring:label></td>
+        <td><spring:input path="name" /></td>
     </tr>
      <tr>
         <td><spring:label path="category_description"><strong><springtags:message text="Category Description"></springtags:message></strong></spring:label></td>
@@ -104,12 +102,12 @@ $(window).load(function() {
     
     <tr>
         			<td>
-        			<c:if test="${empty category.category_name}">
+        			<c:if test="${empty category.name}">
 						<input type="submit"class="btn btn-info" value="<springtags:message text="Add Category"/>" />
 					</c:if>
 					</td>
        				
-       				<c:if test="${not empty category.category_name}">
+       				<c:if test="${not empty category.name}">
 					<td>	
 					<input type="submit" class="btn btn-info"value="<springtags:message text="Edit Category"/>" />
 					
@@ -141,11 +139,11 @@ $(window).load(function() {
          <tbody>
 			<c:forEach items="${categorylist}" var="category">		
 			<tr>
-			<td>${category.category_id}</td>
-			<td>${category.category_name}</td>
+			<td>${category.id}</td>
+			<td>${category.name}</td>
 			<td>${category.category_description} </td>
-			<td><a href="${pageContext.request.contextPath}/edit/${category.category_id}">Edit</a></td>
-			<td><a href="delete/${category.category_id}">Delete</a> </td>
+			<td><a href="${pageContext.request.contextPath}/edit/${category.id}">Edit</a></td>
+			<td><a href="delete/${category.id}">Delete</a> </td>
 			</tr>		
 			</c:forEach>
 		</tbody>	
