@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -131,9 +132,10 @@ $(window).load(function() {
 </ul>
 
 <ul class="nav nav_right sf-menu clearfix">
-	<li><a href="login">Login</a></li>
+<li><a href="login">Login</a></li>
 	<li><a href="index-4.html">Sign Up</a></li>
-	<li><a href="contact">contacts</a></li>
+	<li><a href="contact">contacts</a></li> 
+	
 </ul>
 		</div>
 	</div>

@@ -33,6 +33,7 @@ $(window).load(function() {
 </script>
 </head>
 <body>
+${isAdminClickedCategories}
 <jsp:include page="../header.jsp"></jsp:include>
 <div class="top2_wrapper">
 <div class="container">

@@ -29,7 +29,7 @@ public class CategoryController {
 
 		log.debug("entering showAllGreetings");
 		model.addAttribute("category", new Category());
-
+          model.addAttribute("isAdminClickedCategories", "true");
 		List<Category> categories = categoryDao.list();
 		if (!categories.isEmpty()) {
 

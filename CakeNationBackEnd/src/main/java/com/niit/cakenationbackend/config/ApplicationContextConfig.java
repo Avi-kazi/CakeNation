@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.cakenationbackend.model.Cart;
 import com.niit.cakenationbackend.model.Category;
 import com.niit.cakenationbackend.model.Product;
 import com.niit.cakenationbackend.model.Supplier;
@@ -51,6 +52,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
 		
 	
 		return sessionBuilder.buildSessionFactory();

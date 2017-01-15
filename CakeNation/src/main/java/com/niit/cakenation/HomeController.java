@@ -17,13 +17,14 @@ public class HomeController {
 	public String getContact(){
 		return "contact";
 	}
-	@RequestMapping("/login")
-	public String getLogin(){
-		return "login";
-	}
+	
 	@RequestMapping("/home")
 	public String getHomeee(){
 		return "home";
+	}
+	@RequestMapping("/gallery")
+	public String getGallery(){
+		return "user/gallery";
 	}
 	
 

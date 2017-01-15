@@ -36,6 +36,7 @@ $(window).load(function() {
 </script>
 </head>
 <body>
+${isAdminClickedProducts}
 <%@ include file="/WEB-INF/views/header.jsp"%>
 <spring:form action="${pageContext.request.contextPath}/addProduct" commandName="product" enctype="multipart/form-data" method="post">
 <table   align="center">

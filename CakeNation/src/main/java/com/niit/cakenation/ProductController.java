@@ -40,7 +40,7 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 
 		log.debug("entering showAllGreetings");
 		
-		
+		model.addAttribute("isAdminClickedProducts", "true");
         List<Category> categories=categoryDao.list();
         List<Supplier> suppliers=supplierDao.list();
 		List<Product> products = productDao.list();

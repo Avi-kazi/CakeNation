@@ -28,7 +28,7 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 	public String getSupplier(Model model) {
 
 		log.debug("entering showAllGreetings");
-		
+		model.addAttribute("isAdminClickedSuppliers", "true");
 		model.addAttribute("supplier", new Supplier());
 
 		List<Supplier> suppliers = supplierDao.list();
