@@ -51,7 +51,7 @@ public class UserController {
 		log.debug("Starting of the method login");
 		//log.info("userid is {}  password is {}", userid, password);
 		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii");
-		ModelAndView mv=new ModelAndView("login");
+		ModelAndView mv=new ModelAndView("/login");
 		
 	
 		
@@ -102,7 +102,7 @@ public class UserController {
 		session.invalidate();
 		session = request.getSession(true);
 		session.setAttribute("category", category);
-		session.setAttribute("categoryList", categoryDao.list());
+		session.setAttribute("categorylist", categoryDao.list());
 	
 		mv.addObject("logoutMessage", "You successfully logged out");
 		mv.addObject("loggedOut", "true");

@@ -65,8 +65,6 @@ public class User {
 	private String address;
 	private String mobile;
 	private String role;
-	@Min(8)
-	@Max(12)
 	private String password;
 
 }

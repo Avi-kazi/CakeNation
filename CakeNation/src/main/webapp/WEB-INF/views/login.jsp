@@ -18,8 +18,8 @@
 	<c:url var="action" value="/login"></c:url>
 
 	<spring:form action="${pageContext.request.contextPath}/login" method="post" >
-		center>
-            <table border="1" width="30%" cellpadding="3">
+		
+            <table border="1" width="30%" cellpadding="3"allign="center">
                 <thead>
                     <tr>
                         <th colspan="2">Login Here</th>
@@ -39,7 +39,7 @@
                         <td><input type="reset" value="Reset" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Yet Not Registered!! <a href="reg.jsp">Register Here</a></td>
+                        <td colspan="2">Yet Not Registered!! <a href="registerHere">Register Here</a></td>
                     </tr>
                 </tbody>
             </table>

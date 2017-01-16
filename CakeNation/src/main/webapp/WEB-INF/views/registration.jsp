@@ -8,13 +8,79 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register User</title>
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css' type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css' type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css" media="screen">
+
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="resources/js/superfish.js"></script>
+
+<script type="text/javascript" src="resources/js/jquery.ui.totop.js"></script>
+
+<script type="text/javascript" src="resources/js/cform.js"></script>
+
+<script>
+$(document).ready(function() {
+	//
+
+
+
+
+
+}); //
+$(window).load(function() {
+	//
+
+}); //
+</script>
 </head>
 <body>
 
-	<h2>Please fill the details</h2>
+<jsp:include page="header.jsp"></jsp:include>
+<div class="top2_wrapper">
+<div class="container">
+<div class="row">
+<div class="span12">
 
-	<form:form action="/register" method="post" commandName="user">
-		<table>
+<div class="top2 clearfix">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="h1_wrapper">
+<div class="">
+<div class="">
+<div class="clearfix">
+<div class="h1_inner">
+<h1>Registration</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+	
+ 
+	<form:form action="${pageContext.request.contextPath}/addUser" method="post" commandName="user">
+	
+		<table   align="center">
+			<h2 align="center">Please fill the details</h2>
+			                 <h5> ${successMessage }</h5>
 			<tr>
 				<td><form:label path="userid">
 						<springtags:message text="ID" />
@@ -69,18 +135,19 @@
 						<springtags:message  text="Role" />
 					</form:label></td>
 
-				<td><form:input path="address" required="true" /></td>
+				<td><form:input path="role" required="true" /></td>
 			</tr>
 			<tr>
-                        <td><input type="submit" value="Submit" /></td>
-                        <td><input type="reset" value="Reset" /></td>
+                        <td><input type="submit" class="btn btn-primary" value="Submit" /></td>
+                        <td> <a href="${pageContext.request.contextPath}/edit/${user.userid}" class="btn btn-primary" >Reset </a></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Already registered!! <a href="home">Login Here</a></td>
+                        <td colspan="2">Already registered!! <a href="login">Login Here</a></td>
                     </tr>
 
 		</table>
 
 	</form:form>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

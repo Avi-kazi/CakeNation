@@ -143,7 +143,7 @@ ${isAdminClickedCategories}
 			<td>${category.id}</td>
 			<td>${category.name}</td>
 			<td>${category.category_description} </td>
-			<td><a href="${pageContext.request.contextPath}/edit/${category.id}">Edit</a></td>
+			<td><a href="${pageContext.request.contextPath}/edit/${category.id}" >Edit</a></td>
 			<td><a href="delete/${category.id}">Delete</a> </td>
 			</tr>		
 			</c:forEach>

@@ -1,6 +1,7 @@
 package com.niit.cakenation;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
@@ -9,7 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +28,7 @@ import com.niit.cakenationbackend.model.User;
 
 @Controller
 public class HomeController {
-	Logger log = LoggerFactory.getLogger(UserController.class);
+	Logger log = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
 	UserDAO userDao;
@@ -66,28 +69,45 @@ public class HomeController {
 	}
 	
 @RequestMapping(value="/register")
-public ModelAndView registerUser(@ModelAttribute User user) {
-	ModelAndView mv  = new ModelAndView("/registration");
-	if(user!=null){
-	userDao.saveOrUpdate(user);
+public String home(ModelMap map,Map<String, Object> model) {
+	//String heading="Successfully Inserted";
+	User user = new User();    
+    model.put("user", user);
+    map.addAttribute("userlist", userDao.list());
+    //model.addObject("c",new Category());
+    //map.addAttribute("heading", heading);
+    return "registration";
+}
+@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+public String addUser(@ModelAttribute("user") User user, Model model) {
+	log.debug("starting add user");
+	User existinguser = userDao.get(user.getUserid());
+
+	if (existinguser != null && existinguser.getUserid().equals(user.getUserid())) {
+
+		userDao.update(user);
+	} else {
+		userDao.save(user);
+
 	}
-	else{
-		System.out.println(getHome());
-	}
-	mv.addObject("successMessage", "You are successfully register");
-	
-	return mv;
+	model.addAttribute("successMessage","you successfully registered");
+	log.debug("after ending user");
+	return "redirect:/register";
+
+}
+
+@RequestMapping(value = "edit/{userid}")
+public String showEditCategory(@PathVariable("userid") String id, Model model) {
+	log.debug("Starting Update");
+
+	model.addAttribute("user", this.userDao.get(id));
+	model.addAttribute("userlist", userDao.list());
+
+	log.debug("ending udated user");
+	return "registration";
 }
 
 
-
-
-@RequestMapping("/registerHere")
-public ModelAndView registerHere(@ModelAttribute("userForm") User user, Model model) {
-	ModelAndView mv = new ModelAndView("/registration");
-	mv.addObject("user", user);
-	mv.addObject("isUserClickedRegisterHere", "true");
-	return mv;
 }
-}
+
 
