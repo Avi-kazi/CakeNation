@@ -142,7 +142,7 @@ $(window).load(function() {
                         <td> <a href="${pageContext.request.contextPath}/edit/${user.userid}" class="btn btn-primary" >Reset </a></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Already registered!! <a href="login">Login Here</a></td>
+                        <td colspan="2">Already registered!! <a href="loginhere">Login Here</a></td>
                     </tr>
 
 		</table>

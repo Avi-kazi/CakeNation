@@ -97,8 +97,8 @@ public String addUser(@ModelAttribute("user") User user, Model model) {
 }
 
 @RequestMapping(value = "edit/{userid}")
-public String showEditCategory(@PathVariable("userid") String id, Model model) {
-	log.debug("Starting Update");
+public String showEditUser(@PathVariable("userid") String id, Model model) {
+	log.debug("Starting user Update");
 
 	model.addAttribute("user", this.userDao.get(id));
 	model.addAttribute("userlist", userDao.list());

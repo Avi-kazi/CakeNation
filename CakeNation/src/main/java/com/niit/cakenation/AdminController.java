@@ -34,7 +34,7 @@ public class AdminController {
 	private SupplierDAO supplierDao;
 	@RequestMapping("/manageCategories")
 	public ModelAndView categories() {
-		ModelAndView mv = new ModelAndView("Category");
+		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("category", category) ;
 		mv.addObject("isAdminClickedCategories", "true");
 		mv.addObject("categoryList", categoryDao.list());
@@ -43,7 +43,7 @@ public class AdminController {
 
 	@RequestMapping("/manageProducts")
 	public ModelAndView suppliers() {
-		ModelAndView mv = new ModelAndView("Product");
+		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("product", product);
 		mv.addObject("category", category) ;
 		mv.addObject("supplier", supplier);
@@ -56,7 +56,7 @@ public class AdminController {
 
 	@RequestMapping("/manageSuppliers")
 	public ModelAndView products() {
-		ModelAndView mv = new ModelAndView("Supplier");
+		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("supplier", supplier);
 		
 		mv.addObject("isAdminClickedSuppliers", "true");

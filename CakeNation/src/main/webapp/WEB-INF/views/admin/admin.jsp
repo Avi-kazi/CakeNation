@@ -33,8 +33,8 @@ $(window).load(function() {
 </script>
 </head>
 <body>
-${isAdmin}
-<jsp:include page="../header.jsp"></jsp:include>
+<%@include file="/WEB-INF/views/header.jsp" %>
+
 <div class="top2_wrapper">
 <div class="container">
 <div class="row">

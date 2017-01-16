@@ -9,16 +9,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.niit.cakenationbackend.dao.CartDAO;
 import com.niit.cakenationbackend.dao.CategoryDAO;
 import com.niit.cakenationbackend.dao.SupplierDAO;
 import com.niit.cakenationbackend.dao.UserDAO;
-
+import com.niit.cakenationbackend.model.Cart;
 import com.niit.cakenationbackend.model.Category;
 import com.niit.cakenationbackend.model.Supplier;
 import com.niit.cakenationbackend.model.User;
@@ -29,7 +31,10 @@ public class UserController {
 
 	@Autowired
 	UserDAO userDao;
-
+     @Autowired
+     Cart cart;
+     @Autowired
+     CartDAO cartDao;
 	@Autowired
 	User user;
 	@Autowired
@@ -45,13 +50,15 @@ public class UserController {
 	@Autowired
 	private SupplierDAO supplierDao;
 	
-	@RequestMapping(value="/login")
-	public ModelAndView login(@RequestParam(value="userid",required=true) String userid,
-			@RequestParam(value = "password") String password) {
+	@RequestMapping("/loginhere")
+	public ModelAndView login(@RequestParam(value="userid",required=false) String userid,@RequestParam(value="password",required=false) 
+	String password) {
+			
+		
 		log.debug("Starting of the method login");
 		//log.info("userid is {}  password is {}", userid, password);
 		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii");
-		ModelAndView mv=new ModelAndView("/login");
+		ModelAndView mv=new ModelAndView("/index");
 		
 	
 		
@@ -71,19 +78,19 @@ public class UserController {
 				session.setAttribute("category",category);
 				session.setAttribute("supplierlist", supplierDao.list());
 
-			} /*else {
+			} else {
 				log.debug("Logged in As a User");
 				mv.addObject("isAdmin", "false");
 				
 				
 				//fetch the cart based on userid
-				cart = cartDao.get(userID);
+				cart = cartDao.get(userid);
 				mv.addObject("cart", cart);
 				List<Cart> cartlist = cartDao.list();
 				mv.addObject("cartlist", cartlist);
 				mv.addObject("cartSize", cartlist.size());
 			}
-*/
+
 		} else {
 
 			mv.addObject("invalidCredentials", "true");

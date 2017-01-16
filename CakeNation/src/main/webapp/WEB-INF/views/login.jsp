@@ -10,45 +10,30 @@
 <title>Login</title>
 </head>
 <body>
-
-	Please login with your credentials
-	<br>
 	
-	  
-	<c:url var="action" value="/login"></c:url>
-
-	<spring:form action="${pageContext.request.contextPath}/login" method="post" >
-		
-            <table border="1" width="30%" cellpadding="3"allign="center">
-                <thead>
-                    <tr>
-                        <th colspan="2">Login Here</th>
-                    </tr>
-                </thead>
+	  <spring:form action = "${pageContext.request.contextPath}/loginhere" method="post">
+	<table   align="center">
+			<h2 align="center">Please Login with valid credencials</h2>
+                
                 <tbody>
                     <tr>
-                        <td>User Name</td>
-                        <td><input type="text" name="userid" value="" /></td>
+                        <td>User ID</td>
+                        <td><input type="text" name="userid" /></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" value="" /></td>
+                        <td><input type="password" name="password" /></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" value="Login" /></td>
-                        <td><input type="reset" value="Reset" /></td>
+                        <td><input type="submit" value="Login" class="btn btn-primary"/></td>
+                        
                     </tr>
-                    <tr>
-                        <td colspan="2">Yet Not Registered!! <a href="registerHere">Register Here</a></td>
-                    </tr>
+                   <!--  <tr>
+                       <td colspan="2">Yet Not Registered!! <a href="registerHere">Register Here</a></td>
+                    </tr> -->
                 </tbody>
             </table>
-            </center>
-
-<br>
-<br>
-<br>
-<br>
+	              
 
 	</spring:form>
 
