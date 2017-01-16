@@ -27,29 +27,29 @@ import com.niit.cakenationbackend.model.User;
 public class UserController {
 	Logger log = LoggerFactory.getLogger(UserController.class);
 
-	@Autowired(required=true)
+	@Autowired
 	UserDAO userDao;
 
 	@Autowired
 	User user;
-
+	@Autowired
+	private HttpSession session;
 	
-	
-	@Autowired(required=true)
+	@Autowired
 	private CategoryDAO categoryDao;
 	
 	@Autowired
 	private Category category;
 	@Autowired
 	private Supplier supplier;
-	@Autowired(required=true)
+	@Autowired
 	private SupplierDAO supplierDao;
 	
-	@RequestMapping(value="/loginhere")
-	public ModelAndView login(@RequestParam(value="userid") String userid,
-			@RequestParam(value = "password") String password, HttpSession session) {
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(value="userid",required=true) String userid,
+			@RequestParam(value = "password") String password) {
 		log.debug("Starting of the method login");
-		log.info("userid is {}  password is {}", userid, password);
+		//log.info("userid is {}  password is {}", userid, password);
 		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii");
 		ModelAndView mv=new ModelAndView("login");
 		

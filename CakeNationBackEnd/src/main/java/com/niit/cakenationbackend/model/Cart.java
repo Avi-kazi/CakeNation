@@ -1,10 +1,16 @@
 package com.niit.cakenationbackend.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.stereotype.Component;
+@Entity
+@Table
+@Component
 public class Cart {
 	@Id
 

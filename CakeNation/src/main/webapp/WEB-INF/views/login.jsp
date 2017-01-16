@@ -13,27 +13,42 @@
 
 	Please login with your credentials
 	<br>
-	 ${errorMessage }
-	  
 	
-	<spring:form action="loginhere" method="POST">
-		<table>
-			<tr>
-				<td><spring:label path="userid"><strong><springtags:message text="UserID"></springtags:message></strong></spring:label></td>
-         	<td><spring:input path="userid" required="true" /></td>
-			</tr>
+	  
+	<c:url var="action" value="/login"></c:url>
 
-			<tr>
-				<td><spring:label path="password"><strong><springtags:message text="Password"></springtags:message></strong></spring:label></td>
-         	<td><spring:password path="password" required="true" /></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Login"></td>
-			</tr>
+	<spring:form action="${pageContext.request.contextPath}/login" method="post" >
+		center>
+            <table border="1" width="30%" cellpadding="3">
+                <thead>
+                    <tr>
+                        <th colspan="2">Login Here</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User Name</td>
+                        <td><input type="text" name="userid" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Login" /></td>
+                        <td><input type="reset" value="Reset" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Yet Not Registered!! <a href="reg.jsp">Register Here</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </center>
 
-		</table>
-
-
+<br>
+<br>
+<br>
+<br>
 
 	</spring:form>
 

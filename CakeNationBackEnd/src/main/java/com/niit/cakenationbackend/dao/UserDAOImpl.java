@@ -21,6 +21,14 @@ public class UserDAOImpl implements UserDAO{
 	 
 	@Autowired
 	private SessionFactory sessionFactory;
+	public UserDAOImpl(SessionFactory sessionFactory) {
+		try {
+			this.sessionFactory = sessionFactory;
+		} catch (Exception e) {
+			log.error(" Unable to connect to db");
+			e.printStackTrace();
+		}
+	}
 	@Transactional
 	public List<User> list() {
 		// TODO Auto-generated method stub
@@ -86,5 +94,16 @@ public class UserDAOImpl implements UserDAO{
 		}
 		
 	}
-
+	@Transactional
+	public boolean saveOrUpdate(User user) {
+		// TODO Auto-generated method stub
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+}
 }
