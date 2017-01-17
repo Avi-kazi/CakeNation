@@ -97,6 +97,11 @@
 	}); //
 </script>
 </head>
+<tr>
+					<c:if test="${loggedOut==true}">
+						<td>${logoutMessage}</td>
+					</c:if>
+				</tr>
 <body class="front">
 	<div id="main">
 
@@ -390,11 +395,7 @@
 
 					</c:choose>
 				</tr>
-				<tr>
-					<c:if test="${loggedOut==true}">
-						<td>${logoutMessage}</td>
-					</c:if>
-				</tr>
+				
 				<tr>
 					<c:if test="${not empty cartSize}">
 						<td align="right"><a href="myCart"> My Cart </a>( ${cartSize})</td>
