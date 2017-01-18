@@ -21,7 +21,7 @@ public class Cart {
 	private int total;
     private String productcode;
 
-    private String userId;
+    
     private String productName;
 	private double price;
 	private int quantity;
@@ -44,12 +44,7 @@ public class Cart {
 	public void setProductcode(String productcode) {
 		this.productcode = productcode;
 	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+	
 	public String getProductName() {
 		return productName;
 	}
