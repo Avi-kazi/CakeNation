@@ -5,14 +5,15 @@ import java.io.Serializable;
 import org.springframework.stereotype.Component;
 @Component
 public class PaymentMethod implements Serializable {
-	private String payment;
+	private String paymentMethod;
 
-	public String getPayment() {
-		return payment;
+	public String getPaymentMethod() {
+		return paymentMethod;
 	}
 
-	public void setPayment(String payment) {
-		this.payment = payment;
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
 	}
 
+	
 }

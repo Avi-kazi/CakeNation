@@ -1,8 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:webflow="http://www.springframework.org/schema/webflow-config"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -11,10 +10,20 @@
          http://www.springframework.org/schema/tx 
          http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/webflow-config
+        http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
 
 	<context:component-scan base-package="com.niit.*" />
+	<bean id="viewFactoryCreator"
+		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreater">
+		<property name="viewResolver">
+			<list>
+				<ref bean="viewResolver" />
+			</list>
 
+		</property>
+	</bean>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -25,15 +34,40 @@
 		</property>
 	</bean>
 
-	
+
 	<mvc:resources mapping="/resources/css/**" location="/resources/css/" />
 	<mvc:resources mapping="/resources/js/**" location="/resources/js/" />
 	<mvc:resources mapping="/resources/images/**" location="/resources/images/" />
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-	<mvc:annotation-driven/>
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<!-- setting maximum upload size -->
-	<property name="maxUploadSize" value="5000000"></property>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<mvc:annotation-driven />
+	<!-- Image Upload -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="5000000"></property>
 	</bean>
+	<!-- =======WEB FLOW CONFIGURATION::CHECKOUT FLOW==== -->
+	<!-- Executes flows: the entry point into the Spring Web Flow system -->
+	<webflow:flow-executor id="flowExecutor" />
+	<!-- The registry of executable flow definitions -->
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
+		<!-- here the id is mapped to invoke this flow -->
+		<webflow:flow-location id="cart_checkout" path="/checkout.xml" />
+	</webflow:flow-registry>
+	<webflow:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="viewFactoryCreator" />
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+
+		<property name="flowRegistry" ref="flowRegistry" />
+
+	</bean>
+
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+
+	</bean>
+
 
 </beans>

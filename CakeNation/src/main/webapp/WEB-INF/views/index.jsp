@@ -22,81 +22,84 @@
 </head>
 <body>
 
-<div data-role="page">
-		<table align="center">
-				<tr>
-					<c:choose>
-						<c:when test="${empty loggedInUser}">
-							<h6>Existing user<a href="loginhere"> Login here</a> &nbsp &nbsp
-							New user<a href="register">Register here</a></h6>
-						</c:when>
-						<c:when test="${not empty loggedInUser}">
-							<td>Welcome ${loggedInUser},</td>
-							<td align="right"><a href="logout"><strong>logout</strong> </a></td>
-						</c:when>
-
-					</c:choose>
-				</tr>
-				<tr>
-					<c:if test="${loggedOut==true}">
-						<td>${logoutMessage}</td>
-					</c:if>
-				</tr>
-				<tr>
-					<c:if test="${not empty cartSize}">
-						<td align="right"><a href="myCart"> My Cart </a>( ${cartSize}
-							)</td>
-					</c:if>
-				</tr>
-			</table>
-		</div>
-
+<div>
 		
+		<c:if test="${empty loggedInUser }">
+		<ul>
+		<li><a href="register"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+		</li>
+		</c:if>
+		</ul>
+		<ul>
+		<c:if test="${empty loggedInUser }">
+		<li><a href="loginhere"><span class="glyphicon glyphicon-user"></span>Login</a>
+		</li>
+		</c:if>
+		<c:if test="${!empty loggedInUser}">
+		<span class="glyphicon glyphicon-cart"></span>
+		<c:if test="${empty isAdmin }">
+		<a href="myCart">My Cart</a><i class="fa fa-shopping-cart">${cartSize }</i>
+		</c:if>
+		<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+			</c:if>
+			</ul>
 
-			<div id="registerHere">
+		<c:if test="${!empty logoutMessage}">
+		<div class="alert alert-success"> ${logoutMessage}</div></c:if>
+		
+        <c:if test="${!empty successMessage}">
+		<div class="alert alert-success"> ${successMessage}</div></c:if>
+		
+		<c:if test="${!empty selectedProduct.productname}">
+		<%@ include file="./selectedProduct.jsp" %></c:if>
+		
+		<c:if test="${!empty errorMessage}">
+		<div class="alert alert-danger"> ${errorMessage}</div></c:if>
+		
+			
 				 <c:if test="${isUserClickedRegisterHere==true}">
 					<%@ include file="registration.jsp"%>
 
 				</c:if>
-			</div>
+			
 
-			<div id="loginhere">
+			
 				<c:if test="${isUserClickedLoginHere==true || invalidCredentials==true}">
-				  <div id = "error">  </div>
+				  <div id = "error"> ${errorMessage}</div>
 					<%@ include file="login.jsp"%>
 
 				</c:if>
-			</div>
 
-			<div id="admin">
 
 				<c:if test="${isAdmin==true}">
 
 					<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
 
 				</c:if>
-				<div id="categories">
+				
 					<c:if test="${isAdminClickedCategories==true}">
 						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
 						<%@ include file="/WEB-INF/views/admin/Category.jsp"%>
 					</c:if>
-				</div>
+				
 
-				<div id="products">
+				
 					<c:if test="${isAdminClickedProducts==true}">
 						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
-						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
+						<%@ include file="/WEB-INF/views/admin/Product.jsp"%>
 					</c:if>
-				</div>
+				
 
-				<div id="suppliers">
+				
 					<c:if test="${isAdminClickedSuppliers==true}">
 						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
 						<%@ include file="/WEB-INF/views/admin/Supplier.jsp"%>
 					</c:if>
-				</div>
-
-			</div>
+				<c:if test="${displayCart==true}">
+				<%@ include  file="./user/cart.jsp" %>
+				</c:if>
+	
+			
 
 			
 </body>

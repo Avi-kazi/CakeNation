@@ -1,11 +1,13 @@
 package com.niit.cakenationbackend.model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
-
+import org.springframework.stereotype.Component;
+@Component
 public class ShippingAddress implements Serializable{
 	private static final long serialVersionUID= 1L;
 	@Id
@@ -23,15 +25,12 @@ public class ShippingAddress implements Serializable{
 	private String zipcode;
 	@Override
 	public String toString(){
-		return shippingAddressId+","+line1+","+line2+","+city+","+state+","+country+","+zipcode;
+		return line1+","+line2+","+city+","+state+","+country+","+zipcode;
 		
 	}
 	
-	public String getShippingAddressId() {
-		return shippingAddressId;
-	}
-	public void setShippingAddressId(String shippingAddressId) {
-		this.shippingAddressId = shippingAddressId;
+	public ShippingAddress(){
+		this.shippingAddressId="CITY_COUN_ST"+UUID.randomUUID();
 	}
 	public String getLine1() {
 		return line1;

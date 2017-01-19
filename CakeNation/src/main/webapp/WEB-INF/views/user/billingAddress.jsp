@@ -15,14 +15,7 @@
 				<div class="panel-heading">Biiling Address</div>
 				<div class="panel-body">
 					<form:form class="form-horizontal" commandName="billingAddress">
-					<div class="form-group">
-							<label for="" class="control-label col-sm-2">Billing AddressId</label>
-							<div class="co-sm-10">
-								<form:errors path="shippingAddressId" class="error"></form:errors>
-								<form:input path="shippingAddressId" type="text" autofocus="true"
-									class="form-control" required="true" />
-							</div>
-						</div>
+					
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Line1</label>
 							<div class="co-sm-10">

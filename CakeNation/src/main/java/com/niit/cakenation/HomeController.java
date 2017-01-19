@@ -74,8 +74,7 @@ public String home(ModelMap map,Map<String, Object> model) {
 	User user = new User();    
     model.put("user", user);
     map.addAttribute("userlist", userDao.list());
-    //model.addObject("c",new Category());
-    //map.addAttribute("heading", heading);
+   
     return "registration";
 }
 @RequestMapping(value = "/addUser", method = RequestMethod.POST)
@@ -84,8 +83,9 @@ public String addUser(@ModelAttribute("user") User user, Model model) {
 	User existinguser = userDao.get(user.getUserid());
 
 	if (existinguser != null && existinguser.getUserid().equals(user.getUserid())) {
-
-		userDao.update(user);
+         log.debug("user exist with this id");
+         model.addAttribute("errorMessage", "User exist with this id");
+		
 	} else {
 		userDao.save(user);
 
