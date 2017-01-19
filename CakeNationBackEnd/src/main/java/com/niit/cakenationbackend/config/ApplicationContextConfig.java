@@ -14,9 +14,13 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.cakenationbackend.model.BillingAddress;
 import com.niit.cakenationbackend.model.Cart;
 import com.niit.cakenationbackend.model.Category;
+import com.niit.cakenationbackend.model.Order;
+import com.niit.cakenationbackend.model.PaymentMethod;
 import com.niit.cakenationbackend.model.Product;
+import com.niit.cakenationbackend.model.ShippingAddress;
 import com.niit.cakenationbackend.model.Supplier;
 import com.niit.cakenationbackend.model.User;
 
@@ -53,6 +57,11 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
+		sessionBuilder.addAnnotatedClass(Order.class);
+		sessionBuilder.addAnnotatedClass(ShippingAddress.class);
+		sessionBuilder.addAnnotatedClass(BillingAddress.class);
+		sessionBuilder.addAnnotatedClass(PaymentMethod.class);
+	
 		
 	
 		return sessionBuilder.buildSessionFactory();

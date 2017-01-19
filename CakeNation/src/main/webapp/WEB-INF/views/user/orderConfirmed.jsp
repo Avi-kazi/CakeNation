@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="container-fluid">
+<div class="content">
+<div class="jumbotron">
+<h1>Ordered Confirmed..Product will be delivered shortly..</h1>
+Order # ${order.orderId}<br>
+Shipping Address:${order.shippingAddress }<br>
+Billing Address:${order.billingAddress}<br>
+<input type="submit" name="_eventId_finalHome" value=""/>
+</div>
+</div>
+</div>
 </body>
 </html>

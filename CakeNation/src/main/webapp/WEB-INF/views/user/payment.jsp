@@ -26,7 +26,7 @@
     <label>
        <h5> <b>                       
  
-                    <input type=radio name="paymentMethod"  value=NetBanking />
+                    <input type=radio name="paymentMethod"  value="NetBanking" />
 
                     Enter Card No</h5> </b>   
       <input type="text" size="20" data-stripe="number">
@@ -37,7 +37,7 @@
  
                 <h5> <b>                       
  
-                    <input type=radio name="paymentMethod"  value=Cash On Delivery" />
+                    <input type=radio name="paymentMethod"  value="Cash On Delivery" />
 
                     Cash On Delivery</h5> </b>              
 
