@@ -38,7 +38,7 @@
 										<div class="nav-collapse nav-collapse_ collapse clearfix">
 											<ul class="nav nav_left sf-menu clearfix">
 												<li><a href="home">Home</a></li>
-												<li class="sub-menu sub-menu-1"><a href="items">Categories</a>
+												<li class="sub-menu sub-menu-1"><a href="gallery">Categories</a>
 													<ul>
 														<c:forEach items="${listcategorynames}" var="categoryname">
 
@@ -52,7 +52,7 @@
 
 											<ul class="nav nav_right sf-menu clearfix">
 												<li><a href="login">Login</a></li>
-												<li><a href="index-4.html">Sign Up</a></li>
+												<li><a href="register">Sign Up</a></li>
 												<li><a href="contact">Contacts</a></li>
 											</ul>
 										</div>

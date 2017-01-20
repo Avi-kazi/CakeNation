@@ -1,5 +1,7 @@
 package com.niit.cakenationbackend.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,65 +10,74 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+
 @Entity
 @Table
 @Component
-public class Cart {
+public class Cart implements Serializable {
 	@Id
-
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-
-	@Transient
-	private int total;
-    private String productcode;
-
-    
-    private String productName;
+    private long id;
+    private String productid;
+	private String userid;
+	private String productName;
 	private double price;
 	private int quantity;
 	private char status;
-	public int getId() {
+
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
-	public int getTotal() {
-		return total;
+
+	public String getProductid() {
+		return productid;
 	}
-	public void setTotal(int total) {
-		this.total = total;
+
+	public void setProductid(String productid) {
+		this.productid = productid;
 	}
-	public String getProductcode() {
-		return productcode;
+
+	public String getUserid() {
+		return userid;
 	}
-	public void setProductcode(String productcode) {
-		this.productcode = productcode;
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
 	public char getStatus() {
 		return status;
 	}
+
 	public void setStatus(char status) {
 		this.status = status;
 	}
+
 }

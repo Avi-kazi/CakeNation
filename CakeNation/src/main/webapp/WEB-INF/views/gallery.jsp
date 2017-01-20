@@ -105,19 +105,18 @@ $(window).load(function() {
 	<li><a href="home">Home</a></li>
 	<li class="sub-menu sub-menu-1"><a href="items">Categories</a>
 		<ul>
-			<li><a href="items">Anniversary</a></li>
-			<li><a href="items">Birth Day</a></li>
-			<li><a href="items">Special</a></li>
-			
-		</ul>
+						<c:forEach items="${listcategorynames}" var="categoryname">
+					
+							<li ><a href="selectedproduct"><c:out value="${categoryname }"></c:out></a></li>
+					</c:forEach>
 	</li>
 	<li><a href="about">About Us</a></li>
 </ul>
 
 <ul class="nav nav_right sf-menu clearfix">
-	<li><a href="login">Login</a></li>
-	<li><a href="index-4.html">Sign Up</a></li>
-	<li><a href="contact">Contacts</a></li>
+	<li><a href="loginhere">Login</a></li>
+												<li><a href="register">Sign Up</a></li>
+												<li><a href="contact">contacts</a></li>
 </ul>
 		</div>
 	</div>
@@ -182,12 +181,12 @@ $(window).load(function() {
     <li class="span3 isotope-element isotope-filter1">
 		<div class="thumb-isotope">
 			<div class="thumbnail clearfix">
-				<a href="images/blank.png">
+				<a href="selectedproduct">
 					<figure>
 						<img src="resources/images/PR001.jpg" alt=""><em></em>
 					</figure>
 					<div class="caption">
-						BirthDayyy Cake
+						<a href="selectedproduct">BirthDayyy Cake</a>
 					</div>
 				</a>
 			</div>
@@ -196,12 +195,12 @@ $(window).load(function() {
     <li class="span3 isotope-element isotope-filter2">
 		<div class="thumb-isotope">
 			<div class="thumbnail clearfix">
-				<a href="images/blank.png">
+				<a href="selectedproduct">
 					<figure>
 						<img src="resources/images/PR002.jpg" alt=""><em></em>
 					</figure>
 					<div class="caption">
-						AnniverSary Cake
+						<a href="selectedproduct">AnniverSary Cake</a>
 					</div>
 				</a>
 			</div>
@@ -210,12 +209,12 @@ $(window).load(function() {
     <li class="span3 isotope-element isotope-filter3">
 		<div class="thumb-isotope">
 			<div class="thumbnail clearfix">
-				<a href="images/blank.png">
+				<a href="selectedproduct">
 					<figure>
 						<img src="resources/images/PR003.jpg" alt=""><em></em>
 					</figure>
 					<div class="caption">
-						Special Cake
+						<a href="selectedproduct">Special Cake</a>
 					</div>
 				</a>
 			</div>
@@ -225,12 +224,12 @@ $(window).load(function() {
     <li class="span3 isotope-element isotope-filter1">
 		<div class="thumb-isotope">
 			<div class="thumbnail clearfix">
-				<a href="images/blank.png">
+				<a href="selectedproduct">
 					<figure>
 						<img src="resources/images/PR004.jpg" alt=""><em></em>
 					</figure>
 					<div class="caption">
-						BirthDayy Cake
+						<a href="selectedproduct">BirthDayyy Cake</a>
 					</div>
 				</a>
 			</div>
@@ -239,12 +238,12 @@ $(window).load(function() {
     <li class="span3 isotope-element isotope-filter2">
 		<div class="thumb-isotope">
 			<div class="thumbnail clearfix">
-				<a href="images/blank.png">
+				<a href="selectedproduct">
 					<figure>
 						<img src="resources/images/PR005.jpg" alt=""><em></em>
 					</figure>
 					<div class="caption">
-						AnniverSary Cake
+						<a href="selectedproduct">AnniverSary Cake</a>
 					</div>
 				</a>
 			</div>
@@ -253,12 +252,12 @@ $(window).load(function() {
     <li class="span3 isotope-element isotope-filter3">
 		<div class="thumb-isotope">
 			<div class="thumbnail clearfix">
-				<a href="images/blank.png">
+				<a href="selectedproduct">
 					<figure>
 						<img src="resources/images/PR006.jpg" alt=""><em></em>
 					</figure>
 					<div class="caption">
-						Special Cake
+						<a href="selectedproduct">Special Cake</a>
 					</div>
 				</a>
 			</div>

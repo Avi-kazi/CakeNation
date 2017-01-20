@@ -57,7 +57,7 @@ public class UserController {
 		
 		log.debug("Starting of the method login");
 		//log.info("userid is {}  password is {}", userid, password);
-		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii");
+		//System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiiii");
 		ModelAndView mv=new ModelAndView("/index");
 		
 	
@@ -84,9 +84,9 @@ public class UserController {
 				
 				
 				//fetch the cart based on userid
-				cart = cartDao.get(userid);
+				cart = (Cart) cartDao.list(userid);
 				mv.addObject("cart", cart);
-				List<Cart> cartlist = cartDao.list();
+				List<Cart> cartlist = cartDao.list(userid);
 				mv.addObject("cartlist", cartlist);
 				mv.addObject("cartSize", cartlist.size());
 			}

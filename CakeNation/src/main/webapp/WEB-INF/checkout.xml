@@ -5,7 +5,7 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd"> 
  <var name="shippingAddress" class="com.niit.cakenationbackend.model.ShippingAddress"/>
   <var name="billingAddress" class="com.niit.cakenationbackend.model.BillingAddress"/>
-  <var name="myCart" class="com.niit.cakenationbackend.model.Cart"/>
+  <var name="cart" class="com.niit.cakenationbackend.model.Cart"/>
   <var name="paymentMethod" class="com.niit.cakenationbackend.model.PaymentMethod"/>
   <var name="order" class="com.niit.cakenationbackend.model.Order"/>
   

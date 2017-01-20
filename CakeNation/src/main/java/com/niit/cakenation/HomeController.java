@@ -87,11 +87,13 @@ public String addUser(@ModelAttribute("user") User user, Model model) {
          model.addAttribute("errorMessage", "User exist with this id");
 		
 	} else {
+		user.setRole("ROLE_USER");
 		userDao.save(user);
+		model.addAttribute("successMessage","you successfully registered");
+		log.debug("after ending user");
 
 	}
-	model.addAttribute("successMessage","you successfully registered");
-	log.debug("after ending user");
+	
 	return "redirect:/register";
 
 }

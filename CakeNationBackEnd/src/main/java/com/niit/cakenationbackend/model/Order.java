@@ -1,6 +1,7 @@
 package com.niit.cakenationbackend.model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,10 @@ public class Order implements Serializable{
 	private Cart cart;
 	private long totalAmount;
 	private String paymentMethod;
+	public Order(){
+		this.orderId="C#N_KOLK"+UUID.randomUUID();
+		
+	}
 	public String getUserid() {
 		return userid;
 	}

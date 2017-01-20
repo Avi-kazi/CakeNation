@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +16,7 @@ import com.niit.cakenationbackend.model.Cart;
 import com.niit.cakenationbackend.model.Category;
 @Repository("cartDao")
 public class CartDAOImpl implements CartDAO {
+	private Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -21,40 +24,55 @@ public class CartDAOImpl implements CartDAO {
 		this.sessionFactory = sessionFactory;
 	}
 @Transactional
-	public List<Cart> list() {
+	public List<Cart> list(String userid) {
 		// TODO Auto-generated method stub
-	String hql="from Category";
+	log.debug("Starting of the method list");
+	String hql="from Cart where userid="+"'"+userid+"'"+" and status=" + "'N'";
 	Query query=sessionFactory.getCurrentSession().createQuery(hql);
-	return query.list();
-
-	}
-@Transactional
-	public Cart get(String userId) {
-		// TODO Auto-generated method stub
-	return (Cart) sessionFactory.getCurrentSession().get(Cart.class, userId);
+	List<Cart> list=(List<Cart>)query.list();
+	log.debug("Ending of the method of list");
+		return list;
 	}
 @Transactional
 	public void saveOrUpdate(Cart cart) {
 		// TODO Auto-generated method stub
-	try {
-		sessionFactory.getCurrentSession().saveOrUpdate(cart);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
+	log.debug("Starting of the method save");
+	cart.setId(getMaxId());
+	sessionFactory.getCurrentSession().saveOrUpdate(cart);
+	log.debug("Ending of the save method");
+			
+		
+	}
+private Long getMaxId() {
+	// TODO Auto-generated method stub
+	log.debug("Starting of the method getmax");
+	Long maxID=100L;
+	try{
+		String hql="select max(id) from Cart";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		maxID = (Long)query.uniqueResult();
+	}catch(Exception e){
+		log.debug("Initial id is 100");
+		maxID = 100L;
 		e.printStackTrace();
+		
 	}
-	}
-@Transactional
-	public String delete(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-@Transactional
-	public int getTotalAmount(String userId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
+	log.debug("Max id:"+maxID);
 	
+	return maxID+1;
+}
+@Transactional
+	public Long getTotalAmount(String userid) {
+		// TODO Auto-generated method stub
+		log.debug("Startingof the method gettotal");
+		String hql="select sum(price) from Cart where userid="+","+userid+","+"and Status="+"'N'";
+		log.debug("hql"+hql);
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		Long sum=(Long) query.uniqueResult();
+		log.debug("sum"+sum);
+		log.debug("Ending of the method get total");
+		return sum;
+	}
+
 
 }

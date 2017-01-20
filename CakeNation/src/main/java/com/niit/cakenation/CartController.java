@@ -2,10 +2,13 @@ package com.niit.cakenation;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,36 +16,61 @@ import com.niit.cakenationbackend.dao.CartDAO;
 import com.niit.cakenationbackend.dao.CategoryDAO;
 import com.niit.cakenationbackend.dao.ProductDAO;
 import com.niit.cakenationbackend.model.Cart;
-import com.niit.cakenationbackend.model.Category;
 import com.niit.cakenationbackend.model.Product;
 
 @Controller
 public class CartController {
-	@Autowired(required=true)
+	private Logger log=LoggerFactory.getLogger(CartController.class);
+	@Autowired
 	private CartDAO cartDao;
-	
-	@Autowired(required=true)
+	@Autowired
+	Cart cart;
+	@Autowired
 	private ProductDAO productDao;
-	
-	@Autowired(required=true)
+	@Autowired
+	Product product;
+	@Autowired
 	private CategoryDAO categoryDao;
-	
+	@Autowired
+	private  HttpSession session;
 	@RequestMapping(value = "/myCart", method = RequestMethod.GET)
 	public String myCart(Model model) {
-		model.addAttribute("category", new Category());
-		model.addAttribute("categorylist", categoryDao.list());
-	
+		log.debug("Starting of the method of cart");
 		model.addAttribute("cart", new Cart());
-		model.addAttribute("cartlist", this.cartDao.list());
-		model.addAttribute("totalAmount", cartDao.getTotalAmount("user")); // Just to test, passwrdo user
-		model.addAttribute("displayCart", "true");
-		return "/home";
+		// get thelogged in userid
+		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
+		int cartSize = cartDao.list(loggedInUserid).size();
+		if (cartSize == 0) {
+			model.addAttribute("errorMessage", "your cart is empty");
+		} else {
+			model.addAttribute("cartlist", this.cartDao.list(loggedInUserid));
+			model.addAttribute("totalAmount", cartDao.getTotalAmount(loggedInUserid)); // Just
+																						// to
+																						// test,
+																						// passwrdo
+																						// user
+			model.addAttribute("displayCart", "true");
+		}
+
+		log.debug("Ending of the method cart");
+
+		return "/index";
 	}
-	@RequestMapping("/addtocart")	
-	public String getCart(HttpSession session,ModelMap model){
-		
-	Product product=(Product)session.getAttribute("selectedproduct");
-	model.addAttribute("selectedproduct",product);
+
+	@RequestMapping(value = "/myCart/add/{id}")
+	public String getCart(@PathVariable("id") String id, HttpSession session, ModelMap model) {
+		log.debug("Starting of the method addtoCart");
+		Product product = productDao.get(id);
+		cart.setPrice(product.getPrice());
+		cart.setProductName(product.getProductname());
+		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
+		product = (Product) session.getAttribute("selectedproduct");
+		model.addAttribute("selectedproduct", product);
+		cart.setUserid(loggedInUserid);
+		cart.setStatus('N');
+		cartDao.saveOrUpdate(cart);
+		model.addAttribute("successMessage", "successfully added to cart");
+		log.debug("Ending of the addmetod of cart");
 		return "Cart";
 	}
 }

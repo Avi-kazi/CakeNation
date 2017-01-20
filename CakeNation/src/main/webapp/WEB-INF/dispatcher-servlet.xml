@@ -47,16 +47,20 @@
 		<property name="maxUploadSize" value="5000000"></property>
 	</bean>
 	<!-- =======WEB FLOW CONFIGURATION::CHECKOUT FLOW==== -->
+	
 	<!-- Executes flows: the entry point into the Spring Web Flow system -->
 	<webflow:flow-executor id="flowExecutor" />
+	
 	<!-- The registry of executable flow definitions -->
 	<webflow:flow-registry id="flowRegistry"
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 		<!-- here the id is mapped to invoke this flow -->
+		
 		<webflow:flow-location id="cart_checkout" path="/checkout.xml" />
 	</webflow:flow-registry>
 	<webflow:flow-builder-services id="flowBuilderServices"
 		view-factory-creator="viewFactoryCreator" />
+		
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 
 		<property name="flowRegistry" ref="flowRegistry" />
