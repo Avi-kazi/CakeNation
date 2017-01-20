@@ -1,5 +1,7 @@
 package com.niit.cakenation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ import com.niit.cakenationbackend.model.Supplier;
 
 @Controller
 public class AdminController {
-
+	private Logger log=LoggerFactory.getLogger(AdminController.class);
 	@Autowired
 	private Product product;
 
@@ -34,23 +36,26 @@ public class AdminController {
 	private SupplierDAO supplierDao;
 	@RequestMapping("/manageCategories")
 	public ModelAndView categories() {
+		log.debug("Starting of managecategories");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("category", category) ;
 		mv.addObject("isAdminClickedCategories", "true");
-		mv.addObject("categoryList", categoryDao.list());
+		mv.addObject("categorylist", categoryDao.list());
+		log.debug("Ending of managecategories");
 		return mv;
 	}
 
 	@RequestMapping("/manageProducts")
 	public ModelAndView suppliers() {
+		log.debug("Starting of manageproducts");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("product", product);
 		mv.addObject("category", category) ;
 		mv.addObject("supplier", supplier);
 		mv.addObject("isAdminClickedProducts", "true");
-		mv.addObject("productList", productDao.list());
-		mv.addObject("categoryList", categoryDao.list());
-		mv.addObject("supplierList", supplierDao.list());
+		mv.addObject("productlist", productDao.list());
+		mv.addObject("categorylist", categoryDao.list());
+		mv.addObject("supplierlist", supplierDao.list());
 		return mv;
 	}
 
@@ -60,7 +65,7 @@ public class AdminController {
 		mv.addObject("supplier", supplier);
 		
 		mv.addObject("isAdminClickedSuppliers", "true");
-		mv.addObject("supplierList", supplierDao.list());
+		mv.addObject("supplierlist", supplierDao.list());
 		return mv;
 	}
 
