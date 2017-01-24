@@ -116,7 +116,13 @@ public String showEditUser(@PathVariable("userid") String id, Model model) {
 }
 @RequestMapping(value = "/specificproduct/{id}", method = RequestMethod.GET)	
 public String viewProduct(@PathVariable("id") String productid,HttpSession session, ModelMap model){
-	Product product=this.productDao.get(productid);
+	Product product=productDao.get(productid);
+	product.getDescription();
+	product.getProductname();
+	product.getPrice();
+	product.getProductid();
+	product.getCategory();
+	product.getSupplier();
 	session.setAttribute("selectedproduct",product);
 	model.addAttribute("product",product);
 	 log.info("ending of specific method");

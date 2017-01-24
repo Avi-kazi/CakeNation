@@ -35,9 +35,11 @@
 		</c:if>
 		<c:if test="${!empty loggedInUser}">
 		
-		<c:if test="${empty isAdmin }">
+		<c:if test="${isAdmin==false}">
+		
 		<span class="glyphicon glyphicon-shopping-cart"></span>
 		<a href="myCart">My Cart</a><i class="fa fa-shopping-cart">${cartSize }</i>
+		<%@ include file="gallery.jsp" %>
 		</c:if>
 		<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 			</c:if>

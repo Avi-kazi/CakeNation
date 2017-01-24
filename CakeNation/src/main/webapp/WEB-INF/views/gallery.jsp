@@ -109,7 +109,7 @@
 										</a>
 										<div class="nav-collapse nav-collapse_ collapse clearfix">
 											<ul class="nav nav_left sf-menu clearfix">
-												<li class="active"><a href="home">Home</a></li>
+												<li><a href="home">Home</a></li>
 												<li class="sub-menu sub-menu-1"><a href="gallery">Categories</a>
 													<ul>
 														<c:forEach items="${listcategorynames}" var="categoryname">
@@ -193,7 +193,7 @@
 												src="resources/images/PR001.jpg" alt="">
 											<em></em> </figure>
 											<div class="caption">
-												<a href="selectedproduct{productid}">BirthDayyy Cake</a>
+												<a href="selectedproduct">BirthDayyy Cake</a>
 											</div>
 										</a>
 									</div>

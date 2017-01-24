@@ -15,7 +15,7 @@
 		<div class="row">
 			 <div class="col-sm-6">
 				<img
-					src="${pageContext.request.contextPath}/resources/images/${selectedproduct.productid}.jpg"
+					src="${pageContext.request.contextPath}/resources/images/${product.productid}.jpg"
 					width="310" height="270" />
 			</div>
 			<div class="col-sm-5">
@@ -30,27 +30,27 @@
 					<tbody>
 						<tr>
 							<td align="center"><i>Product Code</i></td>
-							<td align="center"><i>${selectedproduct.productid }</i></td>
+							<td align="center"><i>${product.productid }</i></td>
 						</tr>
 						<tr>
 							<td align="center"><i>Product Name</i></td>
-							<td align="center"><i>${selectedproduct.productname }</i></td>
+							<td align="center"><i>${product.productname }</i></td>
 						</tr>
 						<tr>
 							<td align="center"><i>Description</i></td>
-							<td align="center"><i>${selectedproduct.description }</i></td>
+							<td align="center"><i>$product.description }</i></td>
 						</tr>
 						<tr>
 							<td align="center"><i>Price</i></td>
-							<td align="center"><i>${selectedproduct.price }</i></td>
+							<td align="center"><i>${product.price }</i></td>
 						</tr>
 						<tr>
 							<td align="center"><i>Supplier </i></td>
-							<td align="center"><i>${selectedproduct.supplier.supplier_name }</i></td>
+							<td align="center"><i>${product.supplier.supplier_name }</i></td>
 						</tr>
 						<tr>
 							<td align="center"><i>Category </i></td>
-							<td align="center"><i>${selectedproduct.category.name }</i></td>
+							<td align="center"><i>$product.category.name }</i></td>
 						</tr>
 
 					</tbody>
