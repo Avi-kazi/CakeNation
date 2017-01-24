@@ -114,7 +114,7 @@
 													<ul>
 														<c:forEach items="${listcategorynames}" var="categoryname">
 
-															<li><a href="loginhere"><c:out
+															<li><a href="gallery"><c:out
 																		value="${categoryname }"></c:out></a></li>
 														</c:forEach>
 
@@ -122,13 +122,15 @@
 
 
 													</ul></li>
-												<li><a href="about">About Us</a></li>
+												
 											</ul>
 
 											<ul class="nav nav_right sf-menu clearfix">
-												<li><a href="loginhere">Login</a></li>
-												<li><a href="register">Sign Up</a></li>
-												<li><a href="contact">contacts</a></li>
+											<li><a href="about">About Us</a></li>
+											<li><a href="contact">contacts</a></li>
+												<!-- <li><a href="loginhere">Login</a></li>
+												<li><a href="register">Sign Up</a></li> -->
+												
 
 											</ul>
 										</div>
@@ -173,7 +175,7 @@
 				<div class="row">
 					<div class="span12">
 
-						<h2>Our Photos</h2>
+						<h2>Our Cakes</h2>
 
 						<div id="isotope-options">
 							<ul id="isotope-filters" class="clearfix">
@@ -188,88 +190,79 @@
 						<ul class="thumbnails" id="isotope-items">
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
-									<div class="thumbnail clearfix">
-										<a href="selectedproduct"> <figure> <img
+									
+										<a href="selectedproduct/PR001"> <figure> <img
 												src="resources/images/PR001.jpg" alt="">
 											<em></em> </figure>
-											<div class="caption">
-												<a href="selectedproduct">BirthDayyy Cake</a>
-											</div>
+											
 										</a>
-									</div>
+									
 								</div>
 							</li>
 							<li class="span3 isotope-element isotope-filter2">
 								<div class="thumb-isotope">
-									<div class="thumbnail clearfix">
-										<a href="selectedproduct"> <figure> <img
+									
+										<a href="selectedproduct/PR002"> <figure> <img
 												src="resources/images/PR002.jpg" alt="">
 											<em></em> </figure>
-											<div class="caption">
-												<a href="selectedproduct">AnniverSary Cake</a>
-											</div>
+											
 										</a>
-									</div>
+									
 								</div>
 							</li>
 							<li class="span3 isotope-element isotope-filter3">
 								<div class="thumb-isotope">
-									<div class="thumbnail clearfix">
-										<a href="selectedproduct"> <figure> <img
+									
+										<a href="selectedproduct/PR003"> <figure> <img
 												src="resources/images/PR003.jpg" alt="">
 											<em></em> </figure>
-											<div class="caption">
-												<a href="selectedproduct">Special Cake</a>
-											</div>
+											
 										</a>
-									</div>
+									
 								</div>
 							</li>
 
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
-									<div class="thumbnail clearfix">
+									
 										<a href="selectedproduct"> <figure> <img
 												src="resources/images/PR004.jpg" alt="">
 											<em></em> </figure>
-											<div class="caption">
-												<a href="selectedproduct">BirthDayyy Cake</a>
-											</div>
+											
+										
 										</a>
-									</div>
+									
 								</div>
 							</li>
+							
 							<li class="span3 isotope-element isotope-filter2">
 								<div class="thumb-isotope">
-									<div class="thumbnail clearfix">
-										<a href="selectedproduct"> <figure> <img
+									
+										<a href="selectedproduct/PR005"> <figure> <img
 												src="resources/images/PR005.jpg" alt="">
 											<em></em> </figure>
-											<div class="caption">
-												<a href="selectedproduct">AnniverSary Cake</a>
-											</div>
+											
 										</a>
-									</div>
+									
 								</div>
 							</li>
 							<li class="span3 isotope-element isotope-filter3">
 								<div class="thumb-isotope">
-									<div class="thumbnail clearfix">
-										<a href="selectedproduct"> <figure> <img
+									
+										<a href="selectedproduct/PR006"> <figure> <img
 												src="resources/images/PR006.jpg" alt="">
 											<em></em> </figure>
-											<div class="caption">
-												<a href="selectedproduct">Special Cake</a>
-											</div>
+											
+											
 										</a>
-									</div>
+									
 								</div>
 							</li>
 
 
 
-
-						</ul>
+              </ul>
+						
 
 
 

@@ -39,6 +39,8 @@ public class HomeController {
     @Autowired
 	User user;
     @Autowired
+    private Product product;
+    @Autowired
 	private CategoryDAO categoryDao;
 	@Autowired
 	private Category category;
@@ -70,7 +72,8 @@ public class HomeController {
 		return "home";
 	}
 	@RequestMapping("/gallery")
-	public String getGallery(){
+	public String getGallery(ModelMap model){
+		model.put("product", product);
 		return "gallery";
 	}
 	
@@ -114,21 +117,32 @@ public String showEditUser(@PathVariable("userid") String id, Model model) {
 	log.debug("ending udated user");
 	return "registration";
 }
-@RequestMapping(value = "/specificproduct/{id}", method = RequestMethod.GET)	
+@RequestMapping(value = "/selectedproduct/{id}", method = RequestMethod.GET)	
 public String viewProduct(@PathVariable("id") String productid,HttpSession session, ModelMap model){
 	Product product=productDao.get(productid);
-	product.getDescription();
-	product.getProductname();
-	product.getPrice();
-	product.getProductid();
-	product.getCategory();
-	product.getSupplier();
+	
 	session.setAttribute("selectedproduct",product);
 	model.addAttribute("product",product);
 	 log.info("ending of specific method");
 	return "SpecificProduct";
 }
+/*@RequestMapping(value = "selectedproduct/{productname}")
+public String getSelectedProduct(@PathVariable("productname") String productid, Model model,
+		RedirectAttributes redirectAttributes) {
+	redirectAttributes.addFlashAttribute("selectedProduct", productDao.get(productid));
+	return "redirect:/backToHome";
 
+}
+
+@RequestMapping(value = "/backToHome", method = RequestMethod.GET)
+public String backToHome(@ModelAttribute("selectedProduct") 
+        final Object selectedProduct, final Model model) {
+
+	model.addAttribute("selectedProduct", selectedProduct);
+	//model.addAttribute("categoryList", this.categoryDAO.list());
+
+	return "SpecificProduct";
+}*/
 }
 
 

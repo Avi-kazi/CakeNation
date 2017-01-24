@@ -34,14 +34,19 @@
 		</li>
 		</c:if>
 		<c:if test="${!empty loggedInUser}">
-		
+		<c:if test="${isAdmin==true}">
+               <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+					<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
+
+				</c:if>
 		<c:if test="${isAdmin==false}">
 		
-		<span class="glyphicon glyphicon-shopping-cart"></span>
-		<a href="myCart">My Cart</a><i class="fa fa-shopping-cart">${cartSize }</i>
-		<%@ include file="gallery.jsp" %>
+		<span class="glyphicon glyphicon-shopping-cart"></span><a href="myCart">My Cart</a><i class="fa fa-shopping-cart">${cartSize }</i>
+		<li allign="right"><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		<%@ include file="gallery.jsp"%>
+		
 		</c:if>
-		<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		
 			</c:if>
 		
 		<c:if test="${!empty logoutMessage}">
@@ -70,11 +75,7 @@
 				</c:if>
 
 
-				<c:if test="${isAdmin==true}">
-
-					<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
-
-				</c:if>
+				
 				
 					<c:if test="${isAdminClickedCategories==true}">
 						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>

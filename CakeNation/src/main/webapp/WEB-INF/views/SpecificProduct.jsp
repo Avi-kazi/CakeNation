@@ -6,20 +6,69 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css"
+	media="screen">
+	<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css'
+	type="text/css" media="screen">
+	<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css'
+	type="text/css" media="screen">
+<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/camera.css'
+	type="text/css" media="screen">
+
+
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="resources/js/superfish.js"></script>
+
+<script type="text/javascript" src="resources/js/jquery.ui.totop.js"></script>
+
+<script type="text/javascript" src="resources/js/cform.js"></script>
+
+<script>
+$(document).ready(function() {
+	//
+
+
+
+
+
+}); //
+$(window).load(function() {
+	//
+
+}); //
+</script>
 </head>
 <body>
+<body>
+
+<div class="top2_wrapper">
+<div class="container">
+<div class="row">
+<div class="span12">
+
+<div class="top2 clearfix">
+
+
+
+
+
+
+
+
 	<br>
 	<h2 align="center">Specific Product Details</h2>
-	<hr height="5" style="color: purple" size="5" width="50%" />
-	<div class="container">
-		<div class="row">
-			 <div class="col-sm-6">
+	<hr height="5" style="color: purple" size="5" width="100%" />
+	<div class="container" style="height:15%;width:100%;">
+		
+			 <div style='float:left'>
 				<img
 					src="${pageContext.request.contextPath}/resources/images/${product.productid}.jpg"
-					width="310" height="270" />
+					 width="310" height="270" />
 			</div>
-			<div class="col-sm-5">
-				<table class="table table-striped" align="right">
+		<div style='float:right'>
+				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Product</th>
@@ -38,7 +87,7 @@
 						</tr>
 						<tr>
 							<td align="center"><i>Description</i></td>
-							<td align="center"><i>$product.description }</i></td>
+							<td align="center"><i>${product.description }</i></td>
 						</tr>
 						<tr>
 							<td align="center"><i>Price</i></td>
@@ -50,7 +99,7 @@
 						</tr>
 						<tr>
 							<td align="center"><i>Category </i></td>
-							<td align="center"><i>$product.category.name }</i></td>
+							<td align="center"><i>${product.category.name }</i></td>
 						</tr>
 
 					</tbody>
@@ -66,7 +115,13 @@
 
               </table> 
 			</div>
+		</div> 
 		</div>
-	</div>
+
+</div>
+</div>
+</div>
+</div>
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

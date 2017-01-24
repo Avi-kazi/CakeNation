@@ -42,7 +42,7 @@
 													<ul>
 														<c:forEach items="${listcategorynames}" var="categoryname">
 
-															<li><a href="loginhere"><c:out
+															<li><a href="gallery"><c:out
 																		value="${categoryname }"></c:out></a></li>
 														</c:forEach>
 
