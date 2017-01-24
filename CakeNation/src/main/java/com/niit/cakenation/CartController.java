@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.cakenationbackend.dao.CartDAO;
-import com.niit.cakenationbackend.dao.CategoryDAO;
 import com.niit.cakenationbackend.dao.ProductDAO;
 import com.niit.cakenationbackend.model.Cart;
 import com.niit.cakenationbackend.model.Product;
@@ -29,8 +28,7 @@ public class CartController {
 	private ProductDAO productDao;
 	@Autowired
 	Product product;
-	@Autowired
-	private CategoryDAO categoryDao;
+	
 	@Autowired
 	private  HttpSession session;
 	@RequestMapping(value = "/myCart", method = RequestMethod.GET)
@@ -39,16 +37,13 @@ public class CartController {
 		model.addAttribute("cart", new Cart());
 		// get thelogged in userid
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
-		int cartSize = cartDao.list(loggedInUserid).size();
-		if (cartSize == 0) {
+	    int cartSize =cartDao.list(loggedInUserid).size();
+		
+		if (cartSize==0) {
 			model.addAttribute("errorMessage", "your cart is empty");
 		} else {
 			model.addAttribute("cartlist", this.cartDao.list(loggedInUserid));
-			model.addAttribute("totalAmount", cartDao.getTotalAmount(loggedInUserid)); // Just
-																						// to
-																						// test,
-																						// passwrdo
-																						// user
+			model.addAttribute("totalAmount", cartDao.getTotalAmount(loggedInUserid)); 
 			model.addAttribute("displayCart", "true");
 		}
 
@@ -57,10 +52,10 @@ public class CartController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/myCart/add/{id}")
-	public String getCart(@PathVariable("id") String id, HttpSession session, ModelMap model) {
+	@RequestMapping(value = "/myCart/add/{productid}")
+	public String getCart(@PathVariable("productid") String productid, HttpSession session, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
-		Product product = productDao.get(id);
+		Product product = productDao.get(productid);
 		cart.setPrice(product.getPrice());
 		cart.setProductName(product.getProductname());
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");

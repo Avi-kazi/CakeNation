@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.cakenationbackend.model.Cart;
-import com.niit.cakenationbackend.model.Category;
 @Repository("cartDao")
 public class CartDAOImpl implements CartDAO {
 	private Logger log=LoggerFactory.getLogger(CartDAOImpl.class);
@@ -29,9 +27,9 @@ public class CartDAOImpl implements CartDAO {
 	log.debug("Starting of the method list");
 	String hql="from Cart where userid="+"'"+userid+"'"+" and status=" + "'N'";
 	Query query=sessionFactory.getCurrentSession().createQuery(hql);
-	List<Cart> list=(List<Cart>)query.list();
+	//List<Cart> list=(List<Cart>)query.list();
 	log.debug("Ending of the method of list");
-		return list;
+		return query.list();
 	}
 @Transactional
 	public void saveOrUpdate(Cart cart) {
@@ -43,6 +41,7 @@ public class CartDAOImpl implements CartDAO {
 			
 		
 	}
+
 private Long getMaxId() {
 	// TODO Auto-generated method stub
 	log.debug("Starting of the method getmax");

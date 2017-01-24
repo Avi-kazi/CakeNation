@@ -24,7 +24,7 @@ public class CategoryController {
 	@Autowired
 	private Category category;
 
-	@RequestMapping(value = "/categories", method = RequestMethod.POST)
+	@RequestMapping(value = "/categories", method = RequestMethod.GET)
 	public String getCategory(Model model) {
 
 		log.debug("entering showAllGreetings");

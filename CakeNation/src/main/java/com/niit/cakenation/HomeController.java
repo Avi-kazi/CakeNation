@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +17,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.niit.cakenationbackend.dao.CategoryDAO;
+import com.niit.cakenationbackend.dao.ProductDAO;
 import com.niit.cakenationbackend.dao.SupplierDAO;
 import com.niit.cakenationbackend.dao.UserDAO;
 import com.niit.cakenationbackend.model.Category;
+import com.niit.cakenationbackend.model.Product;
 import com.niit.cakenationbackend.model.Supplier;
 import com.niit.cakenationbackend.model.User;
 
@@ -44,6 +48,8 @@ public class HomeController {
 	private SupplierDAO supplierDao;
 	@Autowired 
 	private ServletContext servletContext;
+	@Autowired
+	private ProductDAO productDao;
 	@RequestMapping("/")
 	public String getHome(){
 		List<String> listCategoryNames=categoryDao.categoryNameList();
@@ -65,7 +71,7 @@ public class HomeController {
 	}
 	@RequestMapping("/gallery")
 	public String getGallery(){
-		return "user/gallery";
+		return "gallery";
 	}
 	
 @RequestMapping(value="/register")
@@ -108,7 +114,14 @@ public String showEditUser(@PathVariable("userid") String id, Model model) {
 	log.debug("ending udated user");
 	return "registration";
 }
-
+@RequestMapping(value = "/specificproduct/{id}", method = RequestMethod.GET)	
+public String viewProduct(@PathVariable("id") String productid,HttpSession session, ModelMap model){
+	Product product=this.productDao.get(productid);
+	session.setAttribute("selectedproduct",product);
+	model.addAttribute("product",product);
+	 log.info("ending of specific method");
+	return "SpecificProduct";
+}
 
 }
 

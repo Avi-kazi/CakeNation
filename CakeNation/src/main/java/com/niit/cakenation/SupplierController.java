@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.cakenationbackend.dao.SupplierDAO;
-import com.niit.cakenationbackend.model.Category;
 import com.niit.cakenationbackend.model.Supplier;
 
 @Controller

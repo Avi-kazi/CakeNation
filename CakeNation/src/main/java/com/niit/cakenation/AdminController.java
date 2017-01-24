@@ -17,25 +17,12 @@ import com.niit.cakenationbackend.model.Supplier;
 @Controller
 public class AdminController {
 	private Logger log=LoggerFactory.getLogger(AdminController.class);
-	@Autowired
-	private Product product;
+	
 
-	@Autowired
-	private Supplier supplier;
-
-	@Autowired
-	private Category category;
 	
-	@Autowired
-	private ProductDAO productDao;
 	
-	@Autowired
-	private CategoryDAO categoryDao;
-	
-	@Autowired
-	private SupplierDAO supplierDao;
 	@RequestMapping("/manageCategories")
-	public ModelAndView categories() {
+	public ModelAndView categories(Category category,CategoryDAO categoryDao) {
 		log.debug("Starting of managecategories");
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("category", category) ;
@@ -46,12 +33,12 @@ public class AdminController {
 	}
 
 	@RequestMapping("/manageProducts")
-	public ModelAndView suppliers() {
+	public ModelAndView products(Category category,ProductDAO productDao,CategoryDAO categoryDao,SupplierDAO supplierDao) {
 		log.debug("Starting of manageproducts");
 		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("product", product);
+		//mv.addObject("product", product);
 		mv.addObject("category", category) ;
-		mv.addObject("supplier", supplier);
+		//mv.addObject("supplier", supplier);
 		mv.addObject("isAdminClickedProducts", "true");
 		mv.addObject("productlist", productDao.list());
 		mv.addObject("categorylist", categoryDao.list());
@@ -60,9 +47,9 @@ public class AdminController {
 	}
 
 	@RequestMapping("/manageSuppliers")
-	public ModelAndView products() {
+	public ModelAndView products(SupplierDAO supplierDao) {
 		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("supplier", supplier);
+		//mv.addObject("supplier", supplier);
 		
 		mv.addObject("isAdminClickedSuppliers", "true");
 		mv.addObject("supplierlist", supplierDao.list());

@@ -8,6 +8,7 @@
 <title>Cart</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/header.jsp" %>
  ${successMessage }
 	<table id="cart" class="table table-striped" style="background: pink">
 		<thead>
@@ -21,7 +22,7 @@
 
 			</tr>
 		</thead>
-		<c:forEach items="${cartlist } var="cart">
+		<c:forEach items="${cartlist }" var="cart">
 			<tr>
 			<td data-th="Product"><img
 						src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/${selectedproduct.productid }.jpg'
@@ -40,5 +41,6 @@
 		<br>
 		<a href="cart_checkout" class="btn btn-info">Checkout</a>
 	</table>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

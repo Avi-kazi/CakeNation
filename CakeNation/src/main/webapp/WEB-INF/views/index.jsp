@@ -9,7 +9,7 @@
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css' type="text/css" media="screen">
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css' type="text/css" media="screen">
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css" media="screen">
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="resources/js/superfish.js"></script>
@@ -25,25 +25,23 @@
 <div>
 		
 		<c:if test="${empty loggedInUser }">
-		<ul>
-		<li><a href="register"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+		
+		<li><h5><a href="register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></h5>
 		</li>
 		</c:if>
-		</ul>
-		<ul>
 		<c:if test="${empty loggedInUser }">
-		<li><a href="loginhere"><span class="glyphicon glyphicon-user"></span>Login</a>
+		<li><h5><a href="loginhere"><span class="glyphicon glyphicon-user"></span>Login</a></h5>
 		</li>
 		</c:if>
 		<c:if test="${!empty loggedInUser}">
-		<span class="glyphicon glyphicon-cart"></span>
+		
 		<c:if test="${empty isAdmin }">
+		<span class="glyphicon glyphicon-shopping-cart"></span>
 		<a href="myCart">My Cart</a><i class="fa fa-shopping-cart">${cartSize }</i>
 		</c:if>
 		<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 			</c:if>
-			</ul>
-
+		
 		<c:if test="${!empty logoutMessage}">
 		<div class="alert alert-success"> ${logoutMessage}</div></c:if>
 		
@@ -51,10 +49,9 @@
 		<div class="alert alert-success"> ${successMessage}</div></c:if>
 		
 		<c:if test="${!empty selectedProduct.productname}">
-		<%@ include file="./selectedProduct.jsp" %></c:if>
+		<%@ include file="/WEB-INF/views/SpecificProduct.jsp" %></c:if>
 		
-		<c:if test="${!empty errorMessage}">
-		<div class="alert alert-danger"> ${errorMessage}</div></c:if>
+		
 		
 			
 				 <c:if test="${isUserClickedRegisterHere==true}">
@@ -65,7 +62,7 @@
 
 			
 				<c:if test="${isUserClickedLoginHere==true || invalidCredentials==true}">
-				  <div id = "error"> ${errorMessage}</div>
+				  
 					<%@ include file="login.jsp"%>
 
 				</c:if>
@@ -96,7 +93,7 @@
 						<%@ include file="/WEB-INF/views/admin/Supplier.jsp"%>
 					</c:if>
 				<c:if test="${displayCart==true}">
-				<%@ include  file="./user/cart.jsp" %>
+				<%@ include  file="/WEB-INF/views/user/cart.jsp" %>
 				</c:if>
 	
 			
