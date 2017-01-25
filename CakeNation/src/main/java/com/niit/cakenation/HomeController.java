@@ -126,23 +126,7 @@ public String viewProduct(@PathVariable("id") String productid,HttpSession sessi
 	 log.info("ending of specific method");
 	return "SpecificProduct";
 }
-/*@RequestMapping(value = "selectedproduct/{productname}")
-public String getSelectedProduct(@PathVariable("productname") String productid, Model model,
-		RedirectAttributes redirectAttributes) {
-	redirectAttributes.addFlashAttribute("selectedProduct", productDao.get(productid));
-	return "redirect:/backToHome";
 
-}
-
-@RequestMapping(value = "/backToHome", method = RequestMethod.GET)
-public String backToHome(@ModelAttribute("selectedProduct") 
-        final Object selectedProduct, final Model model) {
-
-	model.addAttribute("selectedProduct", selectedProduct);
-	//model.addAttribute("categoryList", this.categoryDAO.list());
-
-	return "SpecificProduct";
-}*/
 }
 
 

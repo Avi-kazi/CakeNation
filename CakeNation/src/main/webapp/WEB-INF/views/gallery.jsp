@@ -225,7 +225,7 @@
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct"> <figure> <img
+										<a href="selectedproduct/PR004"> <figure> <img
 												src="resources/images/PR004.jpg" alt="">
 											<em></em> </figure>
 											
@@ -274,6 +274,7 @@
 
 			</div>
 		</div>
+		
 		<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 		<script type="text/javascript" src="resources/js/bootstrap.js"></script>

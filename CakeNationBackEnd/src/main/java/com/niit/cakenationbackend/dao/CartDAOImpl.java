@@ -32,11 +32,11 @@ public class CartDAOImpl implements CartDAO {
 		return query.list();
 	}
 @Transactional
-	public void saveOrUpdate(Cart cart) {
+	public void save(Cart cart) {
 		// TODO Auto-generated method stub
 	log.debug("Starting of the method save");
 	cart.setId(getMaxId());
-	sessionFactory.getCurrentSession().saveOrUpdate(cart);
+	sessionFactory.getCurrentSession().save(cart);
 	log.debug("Ending of the save method");
 			
 		
@@ -45,7 +45,8 @@ public class CartDAOImpl implements CartDAO {
 private Long getMaxId() {
 	// TODO Auto-generated method stub
 	log.debug("Starting of the method getmax");
-	Long maxID=100L;
+	
+	long maxID=100L;
 	try{
 		String hql="select max(id) from Cart";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);

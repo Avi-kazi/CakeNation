@@ -52,20 +52,22 @@ public class CartController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/myCart/add/{productid}")
+	@RequestMapping(value = "/selectedproduct/myCart/add/{productid}")
 	public String getCart(@PathVariable("productid") String productid, HttpSession session, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
 		Product product = productDao.get(productid);
+		
 		cart.setPrice(product.getPrice());
 		cart.setProductName(product.getProductname());
+		cart.setProductid(product.getProductid());
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
 		product = (Product) session.getAttribute("selectedproduct");
 		model.addAttribute("selectedproduct", product);
 		cart.setUserid(loggedInUserid);
 		cart.setStatus('N');
-		cartDao.saveOrUpdate(cart);
+		cartDao.save(cart);
 		model.addAttribute("successMessage", "successfully added to cart");
-		log.debug("Ending of the addmetod of cart");
-		return "Cart";
+		log.debug("Ending of the add method of cart");
+		return "user/cart";
 	}
 }

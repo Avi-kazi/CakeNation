@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow  
 	http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
-	<var name="shippingAddress" class="com.niit.shopingcart.model.ShippingAddress" />
-	<var name="billingAddress" class="com.niit.shopingcart.model.BillingAddress" />
-	<var name="cart" class="com.niit.shopingcart.model.Cart" />
-	<var name="order" class="com.niit.shopingcart.model.Order"></var>
-	<var name="paymentMethod" class="com.niit.shopingcart.model.PaymentMethod"></var>
+	<var name="shippingAddress" class="com.niit.cakenationbackend.model.ShippingAddress" />
+	<var name="billingAddress" class="com.niit.cakenationbackend.model.BillingAddress" />
+	<var name="cart" class="com.niit.cakenationbackend.model.Cart" />
+	<var name="order" class="com.niit.cakenationbackend.model.Order"></var>
+	<var name="paymentMethod" class="com.niit.cakenationbackend.model.PaymentMethod"></var>
 
 	<on-start>
 		<evaluate expression="orderWebflow.initFlow()" result="flowScope.order" />
