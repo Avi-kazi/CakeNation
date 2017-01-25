@@ -8,16 +8,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class Order implements Serializable{
 	private static final long serialVersionUID= 1L;
-	private String  userid;
-	private String orderId;
-	private ShippingAddress shippingAddress;
-	private BillingAddress billingAddress;
-	private Cart cart;
-	private long totalAmount;
-	private String paymentMethod;
+	public String  userid;
+	public String orderId;
+	public ShippingAddress shippingAddress;
+	public BillingAddress billingAddress;
+	public Cart cart;
+	public long totalAmount;
+	public String paymentMethod;
+	
 	public Order(){
+		
 		this.orderId="C#N_KOLK"+UUID.randomUUID();
 		
+	}
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 	public String getUserid() {
 		return userid;

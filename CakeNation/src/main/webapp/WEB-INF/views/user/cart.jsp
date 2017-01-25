@@ -40,6 +40,7 @@ $(window).load(function() {
 <div class="span12">
 
 <div class="top2 clearfix">
+
  ${successMessage }
 	<table id="cart" class="table table-striped" style="background: pink">
 		<thead>
@@ -56,22 +57,25 @@ $(window).load(function() {
 		<c:forEach items="${cartlist }" var="cart">
 			<tr>
 			<td data-th="Product"><img
-						src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/${selectedproduct.productid }.jpg'
+						src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/${cart.productid }.jpg'
 						alt="..." class="img-responsive" height="50%" width="50%" /></td>
-                       <input type="hidden" value="${selectedproduct.productid}" id="productid"/>
+                       <input type="hidden" value="${cart.productid}" id="productid"/>
 			     
 				<td allign="left">${cart.id }</td>
-				<td allign="left">${selectedproduct.productName }</td>
+				<td allign="left">${cart.productName }</td>
 				<td allign="left">${cart.quantity }</td>
-				<td allign="left">${selectedproduct.price }</td>
+				<td allign="left">${cart.price }</td>
 				
 			</tr>
 
 		</c:forEach>
-		<h2>Total Cost:${totalAmount}</h2>
+		
+		</table>
+		<div allign="right">
+		<h6 allign="right">Total Cost:${totalAmount}</h6>
 		<br>
-		<a href="cart_checkout" class="btn btn-info">Checkout</a>
-	</table>
+		<a href="cart_checkout" class="btn btn-info" allign="right">Checkout</a>
+	</div>
 	<br>
 	</div>
 

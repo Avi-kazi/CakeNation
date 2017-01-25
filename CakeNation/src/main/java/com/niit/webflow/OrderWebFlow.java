@@ -1,5 +1,6 @@
 package com.niit.webflow;
 
+import javax.persistence.Entity;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import com.niit.cakenationbackend.model.PaymentMethod;
 import com.niit.cakenationbackend.model.Product;
 import com.niit.cakenationbackend.model.ShippingAddress;
 @Component
+
 public class OrderWebFlow {
 	Logger log = LoggerFactory.getLogger(OrderWebFlow.class);
 	@Autowired

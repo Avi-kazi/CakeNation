@@ -17,7 +17,7 @@ public class Product {
 	private String productid;
 	private String productname;
 	private String description;
-	private double price;
+	private long price;
 	private String category_id;
 	private String supplier_id;
 	@Transient
@@ -58,10 +58,10 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public double getPrice() {
+	public long getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 	public String getCategory_id() {

@@ -26,7 +26,7 @@ public class Cart implements Serializable {
    
 	private String userid;
 	private String productName;
-	private double price;
+	private long price;
 	private int quantity;
 	private char status;
 	
@@ -63,11 +63,11 @@ public class Cart implements Serializable {
 		this.productName = productName;
 	}
 
-	public double getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 

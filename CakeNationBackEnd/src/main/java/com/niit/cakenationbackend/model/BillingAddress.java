@@ -11,18 +11,18 @@ import org.springframework.stereotype.Component;
 public class BillingAddress implements Serializable{
 	private static final long serialVersionUID= 1L;
 	@Id
-	private String billingAddressId;
+	public String billingAddressId;
 	@NotBlank(message="Specify Address")
-	private String line1;
-	private String line2;
+	public String line1;
+	public String line2;
 	@NotBlank(message="Specify City")
-	private String city;
+	public String city;
 	@NotBlank(message="Specify State")
-	private String state;
+	public String state;
 	@NotBlank(message="Specify Country")
-	private String country;
+	public String country;
 	@NotBlank(message="Specify ZipCode")
-	private String zipcode;
+	public String zipcode;
 	@Override
 	public String toString(){
 		return line1+","+line2+","+city+","+state+","+country+","+zipcode;

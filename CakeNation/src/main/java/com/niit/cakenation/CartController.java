@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.cakenationbackend.dao.CartDAO;
 import com.niit.cakenationbackend.dao.ProductDAO;
@@ -56,10 +57,10 @@ public class CartController {
 	public String getCart(@PathVariable("productid") String productid, HttpSession session, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
 		Product product = productDao.get(productid);
-		
 		cart.setPrice(product.getPrice());
 		cart.setProductName(product.getProductname());
 		cart.setProductid(product.getProductid());
+		//cart.setQuantity();
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
 		product = (Product) session.getAttribute("selectedproduct");
 		model.addAttribute("selectedproduct", product);
@@ -68,6 +69,6 @@ public class CartController {
 		cartDao.save(cart);
 		model.addAttribute("successMessage", "successfully added to cart");
 		log.debug("Ending of the add method of cart");
-		return "user/cart";
+		return "redirect:/myCart";
 	}
 }
