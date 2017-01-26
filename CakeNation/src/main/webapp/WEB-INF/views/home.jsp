@@ -379,55 +379,8 @@
 				</div>
 			</div>
 		</div>
-          <div>
-          <table>
-                 <c:choose>
-						<c:when test="${empty loggedInUser}">
-							<td align="left">Existing user<a href="login"> Login
-									here</a></td>
-							<td align="center">New user<a href="register">
-									Register here</a></td>
-						</c:when>
-						<c:when test="${not empty loggedInUser}">
-							<td>Welcome ${loggedInUser},</td>
-							<td align="right"><a href="logout"> logout</a></td>
-						</c:when>
+         
 
-					</c:choose>
-				</tr>
-				
-				<tr>
-					<c:if test="${not empty cartSize}">
-						<td align="right"><a href="myCart"> My Cart </a>( ${cartSize})</td>
-					</c:if>
-				</tr>
-				
-			</table>
-		
-</div>
-<div id="register">
-				<c:if test="${isUserClickedRegisterHere==true}">
-					<%@ include file="registration.jsp"%>
-
-				</c:if>
-			</div>
-
-			<div id="loginHere">
-				<c:if test="${isUserClickedLoginHere==true || invalidCredentials==true}">
-				  <div id = "error">  ${errorMessage} </div>
-					<%@ include file="login.jsp"%>
-
-				</c:if>
-			</div>
-
-			<div id="admin">
-
-				<c:if test="${isAdmin==true}">
-
-					<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
-
-				</c:if>
-				</div>
 		<div class="h1_wrapper">
 			<div class="">
 				<div class="">

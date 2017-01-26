@@ -76,6 +76,11 @@ public class HomeController {
 		model.put("product", product);
 		return "gallery";
 	}
+	@RequestMapping(value = "/manage", method = RequestMethod.GET)
+    public String adminPage() {
+        
+        return "admin/admin";
+    }
 	
 @RequestMapping(value="/register")
 public String home(ModelMap map,Map<String, Object> model) {
@@ -117,7 +122,7 @@ public String showEditUser(@PathVariable("userid") String id, Model model) {
 	log.debug("ending udated user");
 	return "registration";
 }
-@RequestMapping(value = "/selectedproduct/{id}", method = RequestMethod.GET)	
+@RequestMapping(value = "/myCart/{id}", method = RequestMethod.GET)	
 public String viewProduct(@PathVariable("id") String productid,HttpSession session, ModelMap model){
 	Product product=productDao.get(productid);
 	
@@ -126,7 +131,20 @@ public String viewProduct(@PathVariable("id") String productid,HttpSession sessi
 	 log.info("ending of specific method");
 	return "SpecificProduct";
 }
-
+@RequestMapping(value="/loginError",method = RequestMethod.GET)
+public String loginError(Model model) {
+	log.debug("Starting of the method loginError");
+	model.addAttribute("errorMssage","Login Error");
+	log.debug("Ending of the method loginError");
+	return "error";
+}
+@RequestMapping(value="/accessDenied",method = RequestMethod.GET)
+public String accessDenied(Model model)
+{log.debug("Starting of the method accessDenied");
+model.addAttribute("errorMessage", "you are not authorised to access this page");
+log.debug("Ending of the method accessDenied");
+return "error";
+}
 }
 
 

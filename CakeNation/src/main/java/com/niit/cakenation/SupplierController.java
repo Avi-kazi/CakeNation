@@ -23,7 +23,7 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 	@Autowired
 	private SupplierDAO supplierDao;
 
-	@RequestMapping(value = "/suppliers", method = RequestMethod.GET)
+	@RequestMapping(value = "/managesuppliers", method = RequestMethod.GET)
 	public String getSupplier(Model model) {
 
 		log.debug("entering showAllGreetings");
@@ -39,7 +39,7 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 		return "admin/Supplier";
 	}
 
-	@RequestMapping(value = "/addSupplier", method = RequestMethod.POST)
+	@RequestMapping(value = "/manageaddSupplier", method = RequestMethod.POST)
 	public String addSupplier(@ModelAttribute("supplier") Supplier supplier) {
 		log.debug("addcategory");
 
@@ -54,11 +54,11 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 
 		}
 		 log.debug("after ending category");
-		return "redirect:/suppliers";
+		return "redirect:/managesuppliers";
 
 	}
 
-	@RequestMapping(value = "/deleteSupplier/{supplier_id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/managedeleteSupplier/{supplier_id}", method = RequestMethod.GET)
 	public String deleteSupplier(@PathVariable("supplier_id") String id, ModelMap model) {
 		log.debug("Starting Delete");
 
@@ -71,10 +71,10 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 			model.addAttribute("msg","Category does not exist");
         }
         log.debug("deleted successfully");
-		return "redirect:/suppliers";
+		return "redirect:/managesuppliers";
 	}
 	
-	@RequestMapping(value = "/editSupplier/{supplier_id}" ,method=RequestMethod.GET)
+	@RequestMapping(value = "/manageeditSupplier/{supplier_id}" ,method=RequestMethod.GET)
 	public String showEditCategory(@PathVariable("supplier_id") String id, Model model) {
 		log.debug("Strting updated");
 		

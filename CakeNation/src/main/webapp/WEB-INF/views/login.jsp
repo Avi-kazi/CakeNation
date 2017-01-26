@@ -25,7 +25,7 @@
                         <td><input type="password" name="password" /></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" value="Login" class="btn btn-primary"/></td>
+                        <td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><input type="submit" value="Login" class="btn btn-primary"/></td>
                         
                     </tr>
                    <!--  <tr>

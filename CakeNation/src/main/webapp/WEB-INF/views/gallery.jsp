@@ -191,7 +191,7 @@
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct/PR001"> <figure> <img
+										<a href="myCart/PR001"> <figure> <img
 												src="resources/images/PR001.jpg" alt="">
 											<em></em> </figure>
 											
@@ -202,7 +202,7 @@
 							<li class="span3 isotope-element isotope-filter2">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct/PR002"> <figure> <img
+										<a href="myCart/PR002"> <figure> <img
 												src="resources/images/PR002.jpg" alt="">
 											<em></em> </figure>
 											
@@ -213,7 +213,7 @@
 							<li class="span3 isotope-element isotope-filter3">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct/PR003"> <figure> <img
+										<a href="myCart/PR003"> <figure> <img
 												src="resources/images/PR003.jpg" alt="">
 											<em></em> </figure>
 											
@@ -225,7 +225,7 @@
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct/PR004"> <figure> <img
+										<a href="myCart/PR004"> <figure> <img
 												src="resources/images/PR004.jpg" alt="">
 											<em></em> </figure>
 											
@@ -238,7 +238,7 @@
 							<li class="span3 isotope-element isotope-filter2">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct/PR005"> <figure> <img
+										<a href="myCart/PR005"> <figure> <img
 												src="resources/images/PR005.jpg" alt="">
 											<em></em> </figure>
 											
@@ -249,7 +249,7 @@
 							<li class="span3 isotope-element isotope-filter3">
 								<div class="thumb-isotope">
 									
-										<a href="selectedproduct/PR006"> <figure> <img
+										<a href="myCart/PR006"> <figure> <img
 												src="resources/images/PR006.jpg" alt="">
 											<em></em> </figure>
 											

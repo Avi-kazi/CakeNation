@@ -37,7 +37,7 @@ $(window).load(function() {
 </head>
 <body>
 ${isAdminClickedSuppliers}
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="adminhome.jsp"></jsp:include>
 <div class="top2_wrapper">
 <div class="container">
 <div class="row">
@@ -73,7 +73,7 @@ ${isAdminClickedSuppliers}
 <br>
 
 	<div>
-		<spring:form method="POST" action="${pageContext.request.contextPath}/addSupplier" commandName="supplier" >
+		<spring:form method="POST" action="${pageContext.request.contextPath}/manageaddSupplier" commandName="supplier" >
 			<table  cellpadding="5" cellspacing="5"  align="center">
 			
 				<h2 align="center">Here Admin add all Supplier</h2>
@@ -142,8 +142,8 @@ ${isAdminClickedSuppliers}
 							<td>${supplier.supplier_id}</td>
 							<td>${supplier.supplier_name}</td>
 							<td>${supplier.supplier_address}</td>
-							<td><a href="${pageContext.request.contextPath}/editSupplier/${supplier.supplier_id}">Edit</a></td>
-							<td><a href="${pageContext.request.contextPath}/deleteSupplier/${supplier.supplier_id}">Delete</a></td>
+							<td><a href="${pageContext.request.contextPath}/manageeditSupplier/${supplier.supplier_id}">Edit</a></td>
+							<td><a href="${pageContext.request.contextPath}/managedeleteSupplier/${supplier.supplier_id}">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

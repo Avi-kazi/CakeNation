@@ -33,7 +33,7 @@ $(window).load(function() {
 </script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/header.jsp" %>
+<%@include file="adminhome.jsp" %>
 
 <div class="top2_wrapper">
 <div class="container">
@@ -83,9 +83,9 @@ $(window).load(function() {
 <br>
 <div class="button"style="height:200px;width:100%" align="center">
 <div class="btn-group btn-group-justified ">
-							<a href="products" class="btn btn-primary">Manage Products</a> <a
-								href="categories" class="btn btn-primary">Manage Categories</a>
-							<a href="suppliers" class="btn btn-primary">Manage Suppliers</a>
+							<a href="manageproducts" class="btn btn-primary">Manage Products</a> <a
+								href="managecategories" class="btn btn-primary">Manage Categories</a>
+							<a href="managesuppliers" class="btn btn-primary">Manage Suppliers</a>
 						</div>
 						
                   </div>

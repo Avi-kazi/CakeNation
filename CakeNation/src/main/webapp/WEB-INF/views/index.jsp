@@ -96,6 +96,8 @@
 						<%@ include file="/WEB-INF/views/admin/Supplier.jsp"%>
 					</c:if>
 				<c:if test="${displayCart==true}">
+				
+		<li allign="right"><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 				<%@ include  file="/WEB-INF/views/user/cart.jsp" %>
 				</c:if>
 	

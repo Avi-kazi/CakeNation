@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Order Confirmation</title>
-<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css' type="text/css" media="screen">
-<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css' type="text/css" media="screen">
-<link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/bootstrap-responsive.css" type="text/css" media="screen">
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/jquery.easing.1.3.js"></script>
@@ -43,11 +43,11 @@ $(window).load(function() {
 <div class="container-fluid">
 <div class="content">
 <div class="jumbotron">
-<h1>    Ordered Confirmed..Product will be delivered shortly..</h1>
-Order ID :            ${order.orderId}<br>
-Shipping Address:     ${order.shippingAddress }<br>
-Billing Address:      ${order.billingAddress}<br>
-<input type="submit" name="_eventId_finalHome" value="Save"/>
+<h3> <b>  Ordered Confirmed......Product will be delivered shortly..</b> </h3>
+<h4>Order ID :   </h4>        <strong> ${order.orderId}</strong><br>
+<h4>Shipping Address: </h4>   <strong> ${order.shippingAddress }</strong><br>
+<h4>Billing Address: </h4>    <strong> ${order.billingAddress}</strong><br><br>
+<input type="submit" name="_eventId_finalHome" class="btn btn-md btn-success" value="Home""/>
 </div>
 </div>
 </div>
@@ -57,77 +57,6 @@ Billing Address:      ${order.billingAddress}<br>
 </div>
 </div>
 </div>
-		<div class="bot1_wrapper">
-<div class="bot1_wrapper2">
-<div class="container">
-<div class="row">
-<div class="span12">
-<div class="bot1 clearfix">
-<div class="slogan1">
-<div class="row">
-<div class="span4 block1">
-
-<div class="txt1">Made with love<br>for <span>special</span> day</div>
-
-<div class="txt2"> Order our Kolkata special Cakes online made for the people of Kolkata. You can get online cake delivery in Kolkata to any location in Kolkata city. </div>
-
-</div>
-<div class="span4 block2">
-
-<img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/special1.png'alt="" class="img">
-
-</div>
-<div class="span4 block3">
-
-<div class="txt1">Top tier of the<br><span>cake</span> tradition</div>
-
-<div class="txt2">Vibrant and vivacious, this Royal Albert cake stand offers a beautiful two-tier, vintage design. This cake stand is rendered in fine bone china and ...</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="bot2_wrapper">
-<div class="container">
-<div class="row">
-<div class="span12">
-<div class="bot2">
-<div class="row">
-<div class="span2 block1">
-<div class="logo_wrapper2"><a href="index.html" class="logo"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/logo2.png' alt=""></a></div>
-</div>
-<div class="span7 block2">
-<div class="phone1">Best cakes <span>123-456-789</span></div>
-
-<div class="social_wrapper">
-	<ul class="social clearfix">
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic1.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic2.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic3.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic4.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic5.png'></a></li>
-	</ul>
-</div>
-
-</div>
-<div class="span3 block3">
-<div class="bot2_title">Our Address</div>
-<div class="adress1">
-Kankurgachi,CIT more<br>Kolkata,700061.
-</div>
-</div>
-</div>
-</div>
-<footer>Copyright  &copy; 2017. All rights reserved. Cake Nation shop.</footer>
-</div>
-</div>
-</div>
-</div>
+		<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

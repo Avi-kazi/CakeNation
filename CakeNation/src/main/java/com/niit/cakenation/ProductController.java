@@ -35,7 +35,7 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 	@Autowired
 	private SupplierDAO supplierDao;
 	
-	@RequestMapping(value = "/products", method = RequestMethod.GET)
+	@RequestMapping(value = "/manageproducts", method = RequestMethod.GET)
 	public String getProduct(Model model) {
 
 		log.debug("entering showAllGreetings");
@@ -59,7 +59,7 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 		return "admin/Product";
 	}
 
-	@RequestMapping(value = "/addProduct", method= RequestMethod.POST)
+	@RequestMapping(value = "/manageaddProduct", method= RequestMethod.POST)
 	public String addProduct(@ModelAttribute("product") Product product ) {
 		log.debug("starting add product");
 		
@@ -74,10 +74,10 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 			productDao.update(product);
 		}
 		 log.debug("ending Add Product");
-		return "redirect:/products";
+		return "redirect:/manageproducts";
 	}
 
-	@RequestMapping(value = "/product/delete/{productid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/manageproduct/delete/{productid}", method = RequestMethod.GET)
 	public String deleteProduct(@PathVariable("productid")String id, ModelMap model) {
 		log.debug("Starting delete Product");
 		Product product=productDao.get(id);
@@ -89,10 +89,10 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 			model.addAttribute("msg","Product does not exist");
         }
         log.debug("ending Delete Product");
-		return "redirect:/products";
+		return "redirect:/manageproducts";
 	}
 	
-	@RequestMapping(value = "/edit/{productid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/manageedit/{productid}", method = RequestMethod.GET)
 	public String showEditProduct(@PathVariable("productid") String id, ModelMap model ) {
 		log.debug("Starting Updating product");
 		//ModelAndView mv=new ModelAndView("Product");  
@@ -104,14 +104,14 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 		 log.debug("ending Updating Product");
 		return "admin/Product";
 	}
-	@RequestMapping(value = "/specificproduct/{productid}", method = RequestMethod.GET)	
+	/*@RequestMapping(value = "/specificproduct/{productid}", method = RequestMethod.GET)	
 	public String viewProduct(@PathVariable("productid") String id,HttpSession session, ModelMap model){
 		Product product=this.productDao.get(id);
 		session.setAttribute("selectedproduct",product);
 		model.addAttribute("product",product);
 		 log.debug("ending Search Product");
 		return "SpecificProduct";
-	}
+	}*/
 	
 
 }

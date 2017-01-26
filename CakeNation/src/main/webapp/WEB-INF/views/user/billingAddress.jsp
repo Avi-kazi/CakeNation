@@ -41,14 +41,15 @@ $(window).load(function() {
 <div class="span12">
 
 <div class="top2 clearfix">
-	<div class="container-fluid"allign ="center">
-		<div class="content"allign ="center">
-			<div class="panel panel-primary" allign ="center">
-				<h2 align="center">Biiling Address</h2>
-				<div class="panel-body" allign ="center">
+	<div class="container-fluid" allign ="center">
+		<div class="content"align="center">
+			<div class="panel panel-primary"align="center">
+				    <h2 align="center">Billing Address</h2>
+				<div class="panel-body"align="center">
+				
 					<form:form class="form-horizontal" commandName="billingAddress">
 					
-						<div class="form-group"allign ="center">
+						<div class="form-group" allign ="center">
 							<label for="" class="control-label col-sm-2">Line1</label>
 							<div class="co-sm-10">
 								<form:errors path="line1" class="error"></form:errors>
@@ -59,7 +60,7 @@ $(window).load(function() {
 
 <br>
 
-						<div class="form-group"allign ="center">
+						<div class="form-group" allign ="center">
 							<label for="" class="control-label col-sm-2">Line2</label>
 							<div class="co-sm-10">
 								<form:errors path="line1" class="error"></form:errors>
@@ -106,7 +107,7 @@ $(window).load(function() {
 						</div>
 						<br>
 						
-						<div class="col-md-offset-3"allign ="center">
+						<div class="col-md-offset-3" allign ="center">
 							<input type="submit" name="_eventId_submitBillingAddress"
 								class="btn btn-md btn-success" value="Save"> <input
 								type="submit" name="_eventId_cancel"
@@ -121,6 +122,7 @@ $(window).load(function() {
 	</div>
 	</div>
 
+</div>
 </div>
 </div>
 </div>

@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -53,17 +55,24 @@ public class CartController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/selectedproduct/myCart/add/{productid}")
-	public String getCart(@PathVariable("productid") String productid, HttpSession session, ModelMap model) {
+	@RequestMapping(value = "/myCart/myCart/add/{productid}")
+	public String getCart(@PathVariable("productid") String productid,@PathVariable("quantity") String qty, HttpSession session, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
 		Product product = productDao.get(productid);
 		cart.setPrice(product.getPrice());
 		cart.setProductName(product.getProductname());
 		cart.setProductid(product.getProductid());
-		//cart.setQuantity();
+		//cart.setQuantity(1);
+		cart.setQuantity(Integer.parseInt(qty));
+		
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
-		product = (Product) session.getAttribute("selectedproduct");
-		model.addAttribute("selectedproduct", product);
+		if (loggedInUserid == null) {
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			loggedInUserid =auth.getName();
+		}
+		
+		/*product = (Product) session.getAttribute("selectedproduct");
+		model.addAttribute("selectedproduct", product);*/
 		cart.setUserid(loggedInUserid);
 		cart.setStatus('N');
 		cartDao.save(cart);

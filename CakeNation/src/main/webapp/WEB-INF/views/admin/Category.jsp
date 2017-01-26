@@ -34,7 +34,7 @@ $(window).load(function() {
 </head>
 <body>
 ${isAdminClickedCategories}
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="adminhome.jsp"></jsp:include>
 <div class="top2_wrapper">
 <div class="container">
 <div class="row">
@@ -71,7 +71,7 @@ ${isAdminClickedCategories}
 <br>
 
 <div  >
-<spring:form method="POST" action="${pageContext.request.contextPath}/addCategory" commandName="category">
+<spring:form method="POST" action="${pageContext.request.contextPath}/manageaddCategory" commandName="category">
  <table   align="center">
 			<h2 align="center">Here Admin add all Products</h2>
 				
@@ -143,8 +143,8 @@ ${isAdminClickedCategories}
 			<td>${category.id}</td>
 			<td>${category.name}</td>
 			<td>${category.category_description} </td>
-			<td><a href="${pageContext.request.contextPath}/edit/${category.id}" >Edit</a></td>
-			<td><a href="delete/${category.id}">Delete</a> </td>
+			<td><a href="${pageContext.request.contextPath}/manageeditcat/${category.id}" >Edit</a></td>
+			<td><a href="managedelete/${category.id}">Delete</a> </td>
 			</tr>		
 			</c:forEach>
 		</tbody>	

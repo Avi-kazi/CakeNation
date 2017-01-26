@@ -24,7 +24,7 @@ public class CategoryController {
 	@Autowired
 	private Category category;
 
-	@RequestMapping(value = "/categories", method = RequestMethod.GET)
+	@RequestMapping(value = "/managecategories", method = RequestMethod.GET)
 	public String getCategory(Model model) {
 
 		log.debug("entering showAllGreetings");
@@ -39,7 +39,7 @@ public class CategoryController {
 		return "admin/Category";
 	}
 
-	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
+	@RequestMapping(value = "/manageaddCategory", method = RequestMethod.POST)
 	public String addCategory(@ModelAttribute("category") Category category, Model model) {
 		log.debug("starting add category");
 		Category existingcategory = categoryDao.get(category.getId());
@@ -52,11 +52,11 @@ public class CategoryController {
 
 		}
 		log.debug("after ending category");
-		return "redirect:/categories";
+		return "redirect:/managecategories";
 
 	}
 
-	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "managedelete/{id}", method = RequestMethod.GET)
 	public String deleteCategory(@PathVariable("id") String id, ModelMap model) {
 		log.debug("start to delete category");
 		Category category = categoryDao.get(id);
@@ -67,10 +67,10 @@ public class CategoryController {
 			model.addAttribute("msg", "Category does not exist");
 		}
 		log.debug("deleted successfully");
-		return "redirect:/categories";
+		return "redirect:/managecategories";
 	}
 
-	@RequestMapping(value = "edit/{id}")
+	@RequestMapping(value = "manageeditcat/{id}",method=RequestMethod.GET)
 	public String showEditCategory(@PathVariable("id") String id, Model model) {
 		log.debug("Updated category");
 

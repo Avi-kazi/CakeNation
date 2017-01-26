@@ -37,8 +37,8 @@ $(window).load(function() {
 </head>
 <body>
 ${isAdminClickedProducts}
-<%@ include file="/WEB-INF/views/header.jsp"%>
-<spring:form action="${pageContext.request.contextPath}/addProduct" commandName="product" enctype="multipart/form-data" method="post">
+<%@ include file="adminhome.jsp"%>
+<spring:form action="${pageContext.request.contextPath}/manageaddProduct" commandName="product" enctype="multipart/form-data" method="post">
 <table   align="center">
 			<h2 align="center">Here Admin add all Products</h2>
 				<tr>
@@ -142,8 +142,8 @@ ${isAdminClickedProducts}
 								<td>${product.price}</td>
 								<td>${product.category.name}</td>
 								<td>${product.supplier.supplier_name }</td>
-								<td><a href="${pageContext.request.contextPath}/edit/${product.productid}">Edit</a></td>
-								<td><a href="product/delete/${product.productid}">Delete</a></td>
+								<td><a href="${pageContext.request.contextPath}/manageedit/${product.productid}">Edit</a></td>
+								<td><a href="manageproduct/delete/${product.productid}">Delete</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -43,7 +43,8 @@
 	<view-state id="orderConfirm" view="user/orderConfirmed" model="order">
 		<transition on="finalHome" to="toHome" />
 	</view-state>
-	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
+	
+	<end-state id="toHome" view="externalRedirect:contextRelative:/home" />
 
 	<global-transitions>
 		<transition on="cancel" to="toHome" />
