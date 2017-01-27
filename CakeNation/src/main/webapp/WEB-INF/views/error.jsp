@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>LoginError</title>
+
 </head>
 <body>
-True
- ${errorMssage}
+  <h1>${errorMessage }</h1>
+<h1> ${errorMssage}</h1>
+<a href="/CakeNation/logout" class="btn btn-md btn-success" role="button" >Back To Home</a>
 </body>
 </html>

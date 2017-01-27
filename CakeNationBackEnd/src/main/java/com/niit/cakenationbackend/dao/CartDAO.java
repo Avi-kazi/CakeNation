@@ -8,6 +8,7 @@ public interface CartDAO {
 	public List<Cart> list(String userid);
     public void save(Cart cart);
     public Long getTotalAmount(String userid);
+    public String delete(long id);
 	
 
 

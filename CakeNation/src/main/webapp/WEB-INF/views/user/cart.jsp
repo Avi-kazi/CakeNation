@@ -50,6 +50,7 @@ $(window).load(function() {
 				<th style="width: 20%">Product Name</th>
 				<th style="width: 8%">Quantity</th>
 				<th style="width: 20%">Price</th>
+				<th style="width: 20%">Action</th>
 				
 
 			</tr>
@@ -65,6 +66,7 @@ $(window).load(function() {
 				<td allign="left">${cart.productName }</td>
 				<td allign="left">${cart.quantity }</td>
 				<td allign="left">${cart.price }</td>
+				<td allign="left"><a href="<c:url value="/myCart/delete/${cart.id }"/>">Delete</a></td>
 				
 			</tr>
 
@@ -74,7 +76,7 @@ $(window).load(function() {
 		<div allign="right">
 		<h6 allign="right">Total Cost:${totalAmount}</h6>
 		<br>
-		<a href="cart_checkout" class="btn btn-info" allign="right">Checkout</a>
+		<a href="cart_checkout" class="btn btn-info" allign="right">Checkout</a> &nbsp &nbsp <a href="gallery" class="btn btn-info" allign="right">Back to Shopping</a> 
 	</div>
 	<br>
 	</div>
@@ -83,6 +85,7 @@ $(window).load(function() {
 </div>
 </div>
 </div>
+ ${errorMessage }
 		<div class="bot1_wrapper">
 <div class="bot1_wrapper2">
 <div class="container">

@@ -55,15 +55,15 @@ public class CartController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/myCart/myCart/add/{productid}")
-	public String getCart(@PathVariable("productid") String productid,@PathVariable("quantity") String qty, HttpSession session, ModelMap model) {
+	@RequestMapping(value = "/myCart/myCart/add/{productid}" )
+	public String getCart(@PathVariable("productid") String productid, HttpSession session, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
 		Product product = productDao.get(productid);
 		cart.setPrice(product.getPrice());
 		cart.setProductName(product.getProductname());
 		cart.setProductid(product.getProductid());
-		//cart.setQuantity(1);
-		cart.setQuantity(Integer.parseInt(qty));
+		cart.setQuantity(1);
+		//cart.setQuantity(Integer.parseInt(qty));
 		
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
 		if (loggedInUserid == null) {
@@ -80,4 +80,18 @@ public class CartController {
 		log.debug("Ending of the add method of cart");
 		return "redirect:/myCart";
 	}
+
+	@RequestMapping("myCart/delete/{id}")
+    public String removeCart(@PathVariable("id") long id,ModelMap model) throws Exception{
+		
+       try {
+		cartDao.delete(id);
+		model.addAttribute("message","Successfully removed");
+	} catch (Exception e) {
+		model.addAttribute("message",e.getMessage());
+		e.printStackTrace();
+	}
+       //redirectAttrs.addFlashAttribute(arg0, arg1)
+        return "redirect:/myCart";
+    }
 }

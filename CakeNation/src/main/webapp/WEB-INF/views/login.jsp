@@ -13,7 +13,7 @@
 	
 	  <spring:form action = "${pageContext.request.contextPath}/loginhere" method="post">
 	<table   align="center">
-			<h2 align="center">Please Login with valid credencials</h2>
+			<h2 align="center">Please Login with valid credentials</h2>
                 
                 <tbody>
                     <tr>

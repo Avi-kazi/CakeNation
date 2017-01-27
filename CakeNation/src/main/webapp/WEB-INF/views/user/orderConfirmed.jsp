@@ -47,7 +47,8 @@ $(window).load(function() {
 <h4>Order ID :   </h4>        <strong> ${order.orderId}</strong><br>
 <h4>Shipping Address: </h4>   <strong> ${order.shippingAddress }</strong><br>
 <h4>Billing Address: </h4>    <strong> ${order.billingAddress}</strong><br><br>
-<input type="submit" name="_eventId_finalHome" class="btn btn-md btn-success" value="Home""/>
+<a href="logout" class="btn btn-md btn-success" role="button" name="_eventId_finalHome">Home</a>
+       
 </div>
 </div>
 </div>

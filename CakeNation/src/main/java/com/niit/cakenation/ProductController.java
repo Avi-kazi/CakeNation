@@ -48,8 +48,7 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 		//if (products!=null && !products.isEmpty()) {
 			
 			model.addAttribute("product", new Product());
-			//model.addAttribute("category", new Category());
-			//model.addAttribute("supplier", new Supplier());
+			
 			model.addAttribute("productlist", products);
 			model.addAttribute("categorylist",categories);
 			model.addAttribute("supplierlist",suppliers);
@@ -104,14 +103,6 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 		 log.debug("ending Updating Product");
 		return "admin/Product";
 	}
-	/*@RequestMapping(value = "/specificproduct/{productid}", method = RequestMethod.GET)	
-	public String viewProduct(@PathVariable("productid") String id,HttpSession session, ModelMap model){
-		Product product=this.productDao.get(id);
-		session.setAttribute("selectedproduct",product);
-		model.addAttribute("product",product);
-		 log.debug("ending Search Product");
-		return "SpecificProduct";
-	}*/
 	
 
 }

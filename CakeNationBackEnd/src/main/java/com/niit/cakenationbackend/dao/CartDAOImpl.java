@@ -65,7 +65,7 @@ private Long getMaxId() {
 	public Long getTotalAmount(String userid) {
 		// TODO Auto-generated method stub
 		log.debug("Startingof the method gettotal");
-		String hql="select sum(price) from Cart where userid="+"userid"+" and Status= "+"'N'";
+		String hql="select sum(price) from Cart where userid="+"'"+userid+"'"+"  and Status= "+"'N'";
 		log.debug("hql"+hql);
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		Long sum=(Long) query.uniqueResult();
@@ -73,6 +73,20 @@ private Long getMaxId() {
 		log.debug("Ending of the method get total");
 		return sum;
 	}
+@Transactional
+public String delete(long id) {
+	// TODO Auto-generated method stub
+	Cart cart = new Cart();
+	cart.setId(id);
+	try {
+		sessionFactory.getCurrentSession().delete(cart);
+	} catch (Exception e) {
+		e.printStackTrace();
+		return e.getMessage();
+
+	}
+	return null;
+}
 
 
 }

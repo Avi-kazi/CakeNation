@@ -31,6 +31,7 @@
 		</c:if>
 		<c:if test="${empty loggedInUser }">
 		<li><h5><a href="loginhere"><span class="glyphicon glyphicon-user"></span>Login</a></h5>
+		<%@ include file="login.jsp"%>
 		</li>
 		</c:if>
 		<c:if test="${!empty loggedInUser}">
@@ -68,14 +69,8 @@
 			
 
 			
-				<c:if test="${isUserClickedLoginHere==true || invalidCredentials==true}">
-				  
-					<%@ include file="login.jsp"%>
 
-				</c:if>
-
-
-				
+                  
 				
 					<c:if test="${isAdminClickedCategories==true}">
 						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>
