@@ -15,6 +15,7 @@ public interface ProductDAO {
 
 
 	public boolean delete(Product product);
+	public boolean saveOrupdate(Product product);
  
 
 }

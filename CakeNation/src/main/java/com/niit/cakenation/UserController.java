@@ -92,9 +92,9 @@ public class UserController {
 
 		} else {
 
-			mv.addObject("invalidCredentials", "true");
-			mv.addObject("errorMessage", "Invalid Credentials");
-			
+			mv.addObject("isinvalidCredentials", "true");
+			mv.addObject("errorMessage", "Invalid Credentials..please login with valid credentials");
+			System.out.println("invalid credencials");
 
 		}
 		log.debug("Ending of the method login");

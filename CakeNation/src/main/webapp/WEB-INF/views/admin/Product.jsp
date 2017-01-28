@@ -38,7 +38,8 @@ $(window).load(function() {
 <body>
 ${isAdminClickedProducts}
 <%@ include file="adminhome.jsp"%>
-<spring:form action="${pageContext.request.contextPath}/manageaddProduct" commandName="product" enctype="multipart/form-data" method="post">
+
+<spring:form action="${pageContext.request.contextPath}/manageaddProduct?${_csrf.parameterName}=${_csrf.token}" commandName="product" enctype="multipart/form-data" method="post">
 <table   align="center">
 			<h2 align="center">Here Admin add all Products</h2>
 				<tr>

@@ -85,5 +85,18 @@ public class ProductDAOImpl implements ProductDAO {
 					return false;
 				}
 	}
+	public boolean saveOrupdate(Product product) {
+		// TODO Auto-generated method stub
+		try {
+			log.debug("starting update product");
+			sessionFactory.getCurrentSession().saveOrUpdate(product);
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			log.debug("ending update product");
+			return false;
+		}
+	}
 
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Specific page</title>
 
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css"
 	media="screen">
@@ -104,11 +104,12 @@ $(window).load(function() {
                         <tr>
                        <td align="center"><i>Quantity </i></td>
                         <td>
-                        <select name="quantity">
+                        <!-- <select name="quantity">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
-                        </select>
+                        </select> -->
+                        <input type="number" value=1 name="quantity">
                         </td>
 					</tbody>
 				

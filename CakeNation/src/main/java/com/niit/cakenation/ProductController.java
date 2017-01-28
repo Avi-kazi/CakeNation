@@ -70,7 +70,7 @@ Logger log = LoggerFactory.getLogger(ProductController.class);
 			productDao.save(product);
 		}
 		else{
-			productDao.update(product);
+			productDao.saveOrupdate(product);
 		}
 		 log.debug("ending Add Product");
 		return "redirect:/manageproducts";

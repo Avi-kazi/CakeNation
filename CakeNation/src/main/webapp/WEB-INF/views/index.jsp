@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title></title>
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap.css' type="text/css" media="screen">
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/bootstrap-responsive.css' type="text/css" media="screen">
 <link rel="stylesheet" href='<c:out value="${pageContext.request.contextPath}"/>/resources/css/style.css' type="text/css" media="screen">
@@ -56,10 +56,14 @@
         <c:if test="${!empty successMessage}">
 		<div class="alert alert-success"> ${successMessage}</div></c:if>
 		
-		<c:if test="${!empty selectedProduct.productname}">
-		<%@ include file="/WEB-INF/views/SpecificProduct.jsp" %></c:if>
+	<%-- 	<c:if test="${!empty selectedProduct.productname}">
+		<%@ include file="/WEB-INF/views/SpecificProduct.jsp" %></c:if> --%>
 		
+		<c:if test="${invalidCredentials==true}">
+		<div class="alert alert-error"> 
+		${errorMessage}<%@ include file="login.jsp"%></div>
 		
+		</c:if>
 		
 			
 				 <c:if test="${isUserClickedRegisterHere==true}">
