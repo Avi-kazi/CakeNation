@@ -56,10 +56,14 @@
         <c:if test="${!empty successMessage}">
 		<div class="alert alert-success"> ${successMessage}</div></c:if>
 		
-		<c:if test="${!empty selectedProduct.productname}">
-		<%@ include file="/WEB-INF/views/SpecificProduct.jsp" %></c:if>
+	<%-- 	<c:if test="${!empty selectedProduct.productname}">
+		<%@ include file="/WEB-INF/views/SpecificProduct.jsp" %></c:if> --%>
 		
+		<c:if test="${invalidCredentials==true}">
+		<div class="alert alert-error"> 
+		${errorMessage}<%@ include file="login.jsp"%></div>
 		
+		</c:if>
 		
 			
 				 <c:if test="${isUserClickedRegisterHere==true}">

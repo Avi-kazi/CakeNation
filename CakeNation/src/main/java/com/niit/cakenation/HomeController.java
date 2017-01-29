@@ -137,6 +137,12 @@ public String loginError(Model model) {
 	model.addAttribute("errorMssage","Login Error");
 	log.debug("Ending of the method loginError");
 	return "error";
+	
+}
+@RequestMapping(value="/login",method = RequestMethod.GET)
+public String login(Model model){
+	model.addAttribute("errorMssage","Login Error");
+	return "home";
 }
 @RequestMapping(value="/accessDenied",method = RequestMethod.GET)
 public String accessDenied(Model model)

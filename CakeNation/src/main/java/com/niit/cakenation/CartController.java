@@ -55,15 +55,15 @@ public class CartController {
 		return "/index";
 	}
 
-	@RequestMapping(value = "/myCart/myCart/add/{productid}" )
-	public String getCart(@PathVariable("productid") String productid, HttpSession session, ModelMap model) {
+	@RequestMapping(value = "/myCart/add/{productid}" ,method=RequestMethod.GET)
+	public String getCart(@PathVariable("productid") String productid, HttpSession session,@RequestParam("quantity") String qty, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
 		Product product = productDao.get(productid);
 		cart.setPrice(product.getPrice());
 		cart.setProductName(product.getProductname());
 		cart.setProductid(product.getProductid());
-		cart.setQuantity(1);
-		//cart.setQuantity(Integer.parseInt(qty));
+		//cart.setQuantity(1);
+		cart.setQuantity(Integer.parseInt(qty));
 		
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
 		if (loggedInUserid == null) {

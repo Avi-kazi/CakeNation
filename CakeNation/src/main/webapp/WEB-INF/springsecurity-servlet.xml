@@ -9,21 +9,22 @@ http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security.xsd">
 
-	 <security:http auto-config="true">
+	    <security:http auto-config="true">
 
 		<security:intercept-url pattern="/manage**"
 			access="hasRole('ROLE_ADMIN')" />
 			
 			
-		<security:intercept-url pattern="/myCart****"
+		<security:intercept-url pattern="/myCart**"
 			access="hasRole('ROLE_USER')" />
 			<security:intercept-url pattern="/myCart/{id}"
 			access="hasRole('ROLE_USER')" />
+			
 		<!-- <security:intercept-url pattern="/cart_checkout**"
 			access="hasRole('ROLE_USER')" /> -->
 
 		<security:form-login username-parameter="username"
-			password-parameter="password" authentication-failure-forward-url="/loginError" />
+			password-parameter="password" authentication-failure-url="/loginError"  />
 
 		<security:access-denied-handler
 			error-page="/accessDenied" />

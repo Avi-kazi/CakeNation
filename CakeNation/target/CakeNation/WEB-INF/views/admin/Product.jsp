@@ -38,14 +38,15 @@ $(window).load(function() {
 <body>
 ${isAdminClickedProducts}
 <%@ include file="adminhome.jsp"%>
-<spring:form action="${pageContext.request.contextPath}/manageProduct" commandName="product" enctype="multipart/form-data" method="get">
+
+<spring:form action="${pageContext.request.contextPath}/manageaddProduct?${_csrf.parameterName}=${_csrf.token}" commandName="product" enctype="multipart/form-data" method="post">
 <table   align="center">
 			<h2 align="center">Here Admin add all Products</h2>
 				<tr>
 					<c:choose>
 						<c:when test="${not empty product.productname}">
 							<td><spring:label path="productid"><springtags:message text="Product ID :"></springtags:message></spring:label></td>
-          					<td><spring:input path="productid" disabled="true" readonly="true" /></td>
+          					<td><spring:input path="productid" readonly="true" /></td>
 						</c:when>
 						<c:otherwise>
 							<td><spring:label path="productid"><strong><springtags:message text="Product ID :" ></springtags:message></strong></spring:label></td>

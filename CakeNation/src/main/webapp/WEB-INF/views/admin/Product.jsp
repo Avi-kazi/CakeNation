@@ -46,7 +46,7 @@ ${isAdminClickedProducts}
 					<c:choose>
 						<c:when test="${not empty product.productname}">
 							<td><spring:label path="productid"><springtags:message text="Product ID :"></springtags:message></spring:label></td>
-          					<td><spring:input path="productid" disabled="true" readonly="true" /></td>
+          					<td><spring:input path="productid" readonly="true" /></td>
 						</c:when>
 						<c:otherwise>
 							<td><spring:label path="productid"><strong><springtags:message text="Product ID :" ></springtags:message></strong></spring:label></td>

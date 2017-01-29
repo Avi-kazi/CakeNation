@@ -26,83 +26,81 @@ import com.niit.utility.FileUtil;
 
 @Controller
 public class ProductController {
-Logger log = LoggerFactory.getLogger(ProductController.class);
-	
+	Logger log = LoggerFactory.getLogger(ProductController.class);
+
 	@Autowired
 	private ProductDAO productDao;
 	@Autowired
 	private CategoryDAO categoryDao;
 	@Autowired
 	private SupplierDAO supplierDao;
-	
+
+	@Autowired
+	HttpSession session;
+
 	@RequestMapping(value = "/manageproducts", method = RequestMethod.GET)
 	public String getProduct(Model model) {
 
 		log.debug("entering showAllGreetings");
-		
+
 		model.addAttribute("isAdminClickedProducts", "true");
-        List<Category> categories=categoryDao.list();
-        List<Supplier> suppliers=supplierDao.list();
+		List<Category> categories = categoryDao.list();
+		List<Supplier> suppliers = supplierDao.list();
 		List<Product> products = productDao.list();
-		
-		//if (products!=null && !products.isEmpty()) {
-			
-			model.addAttribute("product", new Product());
-			
-			model.addAttribute("productlist", products);
-			model.addAttribute("categorylist",categories);
-			model.addAttribute("supplierlist",suppliers);
-			log.debug("Ending Greetings");
-		//}
-			
+
+		// if (products!=null && !products.isEmpty()) {
+
+		model.addAttribute("product", new Product());
+
+		model.addAttribute("productlist", products);
+		model.addAttribute("categorylist", categories);
+		model.addAttribute("supplierlist", suppliers);
+		log.debug("Ending Greetings");
+		// }
+
 		return "admin/Product";
 	}
 
-	@RequestMapping(value = "/manageaddProduct", method= RequestMethod.POST)
-	public String addProduct(@ModelAttribute("product") Product product ) {
+	@RequestMapping(value = "/manageaddProduct", method = RequestMethod.POST)
+	public String addProduct(@ModelAttribute("product") Product product,Model model) {
 		log.debug("starting add product");
-		
-		if((productDao.get(product.getProductid()))==null)
-		{
-			MultipartFile image=product.getFile();
-			
-			FileUtil.upload("D:/Ws/CakeNation/src/main/webapp/resources/images/", image, product.getProductid()+".jpg");
+
+		if ((productDao.get(product.getProductid())) == null) {
+			MultipartFile image = product.getFile();
+
+			FileUtil.upload("D:/Ws/CakeNation/src/main/webapp/resources/images/", image,
+					product.getProductid() + ".jpg");
 			productDao.save(product);
+		} else {
+			productDao.update(product);
+
+			model.addAttribute("categorylist", this.categoryDao.list());
+			model.addAttribute("productlist", this.productDao.list());
+			model.addAttribute("supplierlist", this.supplierDao.list());
+
 		}
-		else{
-			productDao.saveOrupdate(product);
-		}
-		 log.debug("ending Add Product");
+		log.debug("ending Add Product");
 		return "redirect:/manageproducts";
 	}
 
 	@RequestMapping(value = "/manageproduct/delete/{productid}", method = RequestMethod.GET)
-	public String deleteProduct(@PathVariable("productid")String id, ModelMap model) {
+	public String deleteProduct(@PathVariable("productid") String id, ModelMap model) {
 		log.debug("Starting delete Product");
-		Product product=productDao.get(id);
-        if(product!=null){
+		Product product = productDao.get(id);
+		if (product != null) {
 			productDao.delete(product);
-			model.addAttribute("msg","Successfully Deleted");
-        }
-        else{
-			model.addAttribute("msg","Product does not exist");
-        }
-        log.debug("ending Delete Product");
+			model.addAttribute("msg", "Successfully Deleted");
+		} else {
+			model.addAttribute("msg", "Product does not exist");
+		}
+		log.debug("ending Delete Product");
 		return "redirect:/manageproducts";
 	}
-	
+
 	@RequestMapping(value = "/manageedit/{productid}", method = RequestMethod.GET)
-	public String showEditProduct(@PathVariable("productid") String id, ModelMap model ) {
+	public String showEditProduct(@ModelAttribute("product") Product product, ModelMap model) {
 		log.debug("Starting Updating product");
-		//ModelAndView mv=new ModelAndView("Product");  
-		Product product=this.productDao.get(id);
-		model.addAttribute("product", this.productDao.get(id));
-		model.addAttribute("categorylist",this.categoryDao.list());
-		model.addAttribute("productlist",this.productDao.list());
-		model.addAttribute("supplierlist",this.supplierDao.list());
-		 log.debug("ending Updating Product");
-		return "admin/Product";
+		return "/admin/Product";
 	}
-	
 
 }
