@@ -112,7 +112,7 @@ ${isAdminClickedCategories}
        				
        				<c:if test="${not empty category.name}">
 					<td>	
-					<input type="submit" class="btn btn-info"value="<springtags:message text="Edit Category"/>" />
+					<input type="submit" class="btn btn-info"value="<springtags:message text="Save Category"/>" />
 					
 					</td>
 					</c:if> 
@@ -159,6 +159,6 @@ ${isAdminClickedCategories}
    
 </table>
 </div>
- <%@ include file="../footer.jsp"%>
+ <%@ include file="../footeradmin.jsp"%>
 </body>
 </html>

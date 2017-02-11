@@ -81,6 +81,7 @@ $(window).load(function() {
  Cake delivery Kolkata : #1 in collection of cakes & best online cake delivery Kolkata | Send guaranteed fresh Cakes to Kolkata with *same Day & Midnight Cake ...</p>
 <br>
 <br>
+<div class="container">
 <div class="button"style="height:200px;width:100%" align="center">
 <div class="btn-group btn-group-justified ">
 							<a href="manageproducts" class="btn btn-primary">Manage Products</a> <a
@@ -88,6 +89,8 @@ $(window).load(function() {
 							<a href="managesuppliers" class="btn btn-primary">Manage Suppliers</a>
 						</div>
 						
+                </div>
+                  </div>
                   </div>
 <%@include file="/WEB-INF/views/footer.jsp" %>
 <br>

@@ -88,7 +88,7 @@ public String home(ModelMap map,Map<String, Object> model) {
 	User user = new User();    
     model.put("user", user);
     map.addAttribute("userlist", userDao.list());
-   
+   model.put("isUserClickedRegisterHeree","true");
     return "registration";
 }
 @RequestMapping(value = "/addUser", method = RequestMethod.POST)

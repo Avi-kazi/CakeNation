@@ -103,7 +103,7 @@ $(window).load(function() {
 	 Sounds obvious but we listen to your ideas, plans and objectives for your business. ... Cake Nation is "one-stop-shop" web design agency providing everything you ...Practical, cost-effective service to clients.. All of our staff are driven by this client-focused tradition. As a result we are trusted to ensure our IT Solutions ...
 </p>
 
-<a href="#" class="button1">details</a>
+<a href="#" class="button1"></a>
 
 </div>
 <div class="span4">

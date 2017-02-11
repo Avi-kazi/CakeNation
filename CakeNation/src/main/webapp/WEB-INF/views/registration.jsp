@@ -80,14 +80,14 @@ $(window).load(function() {
 	
 		<table   align="center">
 			<h2 align="center">Please fill the details</h2>
-			                 <h5> ${successMessage }</h5>
+			                  <caption>${successMessage }</caption> 
 			<tr>
 				<td><form:label path="userid">
 						<springtags:message text="ID" />
 					</form:label></td>
 
-				<td><form:input path="userid" pattern=".{4,7}" required="true"
-						title="id should contains 4 to 7 characters" /></td>
+				<td><form:input path="userid" pattern=".{4,12}" required="true"
+						title="id should contains 4 to 12 characters" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="name">
@@ -102,7 +102,7 @@ $(window).load(function() {
 						<springtags:message text="Password" />
 					</form:label></td>
 
-				<td><form:input path="password" pattern=".{4,15}"
+				<td><form:input path="password" type="password" pattern=".{4,15}"
 						required="true"
 						title="password should contains 4 to 15 characters" /></td>
 			</tr>

@@ -16,6 +16,6 @@ public interface ProductDAO {
 
 	public boolean delete(Product product);
 	
- 
+
 
 }

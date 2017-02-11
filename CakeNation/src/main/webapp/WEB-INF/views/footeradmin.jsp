@@ -55,15 +55,8 @@
 <div class="span7 block2">
 <div class="phone1">Best cakes <span>123-456-789</span></div>
 
-<div class="social_wrapper">
-	<ul class="social clearfix">
-	    <li><a href="https://www.facebook.com/"><img src="resources/images/social_ic1.png"></a></li>
-	    <li><a href="https://twitter.com/"><img src="resources/images/social_ic2.png"></a></li>
-	   
-	    <li><a href="https://www.youtube.com/"><img src="resources/images/social_ic4.png"></a></li>
-	    
-	</ul>
-</div>
+
+
 
 </div>
 <div class="span3 block3">

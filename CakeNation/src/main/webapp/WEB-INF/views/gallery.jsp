@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Gallery</title>
-
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+	rel="stylesheet">
 <link rel="stylesheet" href="resources/css/bootstrap.css"
 	type="text/css" media="screen">
 <link rel="stylesheet" href="resources/css/bootstrap-responsive.css"
@@ -122,15 +125,15 @@
 
 
 													</ul></li>
-												
+
 											</ul>
 
 											<ul class="nav nav_right sf-menu clearfix">
-											<li><a href="about">About Us</a></li>
-											<li><a href="contact">contacts</a></li>
+												<li><a href="about">About Us</a></li>
+												<li><a href="contact">contacts</a></li>
 												<!-- <li><a href="loginhere">Login</a></li>
 												<li><a href="register">Sign Up</a></li> -->
-												
+
 
 											</ul>
 										</div>
@@ -177,6 +180,11 @@
 
 						<h2>Our Cakes</h2>
 
+
+						
+
+						</div>
+
 						<div id="isotope-options">
 							<ul id="isotope-filters" class="clearfix">
 								<li><a href="#" class="selected" data-filter="*">Show
@@ -190,79 +198,73 @@
 						<ul class="thumbnails" id="isotope-items">
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
-									
-										<a href="myCart/PR001"> <figure> <img
-												src="resources/images/PR001.jpg" alt="">
-											<em></em> </figure>
-											
-										</a>
-									
+
+									<a href="myCart/PR001"> <figure> <img
+											src="resources/images/PR001.jpg" alt=""> <em></em> </figure>
+
+									</a>
+
 								</div>
 							</li>
 							<li class="span3 isotope-element isotope-filter2">
 								<div class="thumb-isotope">
-									
-										<a href="myCart/PR002"> <figure> <img
-												src="resources/images/PR002.jpg" alt="">
-											<em></em> </figure>
-											
-										</a>
-									
+
+									<a href="myCart/PR002"> <figure> <img
+											src="resources/images/PR002.jpg" alt=""> <em></em> </figure>
+
+									</a>
+
 								</div>
 							</li>
 							<li class="span3 isotope-element isotope-filter3">
 								<div class="thumb-isotope">
-									
-										<a href="myCart/PR003"> <figure> <img
-												src="resources/images/PR003.jpg" alt="">
-											<em></em> </figure>
-											
-										</a>
-									
+
+									<a href="myCart/PR003"> <figure> <img
+											src="resources/images/PR003.jpg" alt=""> <em></em> </figure>
+
+									</a>
+
 								</div>
 							</li>
 
 							<li class="span3 isotope-element isotope-filter1">
 								<div class="thumb-isotope">
-									
-										<a href="myCart/PR004"> <figure> <img
-												src="resources/images/PR004.jpg" alt="">
-											<em></em> </figure>
-											
-										
-										</a>
-									
+
+									<a href="myCart/PR004"> <figure> <img
+											src="resources/images/PR004.jpg" alt=""> <em></em> </figure>
+
+
+									</a>
+
 								</div>
 							</li>
-							
+
 							<li class="span3 isotope-element isotope-filter2">
 								<div class="thumb-isotope">
-									
-										<a href="myCart/PR005"> <figure> <img
-												src="resources/images/PR005.jpg" alt="">
-											<em></em> </figure>
-											
-										</a>
-									
+
+									<a href="myCart/PR005"> <figure> <img
+											src="resources/images/PR005.jpg" alt=""> <em></em> </figure>
+
+									</a>
+
 								</div>
 							</li>
 							<li class="span3 isotope-element isotope-filter3">
 								<div class="thumb-isotope">
-									
-										<a href="myCart/PR006"> <figure> <img
-												src="resources/images/PR006.jpg" alt="">
-											<em></em> </figure>
-											
-											
-										</a>
-									
+
+									<a href="myCart/PR006"> <figure> <img
+											src="resources/images/PR006.jpg" alt=""> <em></em> </figure>
+
+
+									</a>
+
 								</div>
 							</li>
 
 
 
-              </ul>
-						
+						</ul>
+
 
 
 
@@ -274,7 +276,7 @@
 
 			</div>
 		</div>
-		
+
 		<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 		<script type="text/javascript" src="resources/js/bootstrap.js"></script>

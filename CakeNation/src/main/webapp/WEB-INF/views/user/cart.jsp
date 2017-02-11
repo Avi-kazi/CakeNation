@@ -34,6 +34,7 @@ $(window).load(function() {
 </script>
 </head>
 <body>
+ ${errorMessage }
 <div class="top2_wrapper">
 <div class="container">
 <div class="row">
@@ -42,6 +43,7 @@ $(window).load(function() {
 <div class="top2 clearfix">
 
  ${successMessage }
+   ${pleasebuy}
 	<table id="cart" class="table table-striped" style="background: pink">
 		<thead>
 			<tr>
@@ -49,7 +51,7 @@ $(window).load(function() {
 				<th style="width: 8%">Cart ID</th>
 				<th style="width: 20%">Product Name</th>
 				<th style="width: 8%">Quantity</th>
-				<th style="width: 20%">Price</th>
+				<th style="width: 20%">Total Price</th>
 				<th style="width: 20%">Action</th>
 				
 
@@ -134,15 +136,7 @@ $(window).load(function() {
 <div class="span7 block2">
 <div class="phone1">Best cakes <span>123-456-789</span></div>
 
-<div class="social_wrapper">
-	<ul class="social clearfix">
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic1.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic2.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic3.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic4.png'></a></li>
-	    <li><a href="#"><img src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic5.png'></a></li>
-	</ul>
-</div>
+
 
 </div>
 <div class="span3 block3">

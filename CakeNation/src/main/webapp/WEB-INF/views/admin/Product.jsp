@@ -46,7 +46,7 @@ ${isAdminClickedProducts}
 					<c:choose>
 						<c:when test="${not empty product.productname}">
 							<td><spring:label path="productid"><springtags:message text="Product ID :"></springtags:message></spring:label></td>
-          					<td><spring:input path="productid" readonly="true" /></td>
+          					<td><spring:input path="productid" disabled="true"  readonly="true" /></td>
 						</c:when>
 						<c:otherwise>
 							<td><spring:label path="productid"><strong><springtags:message text="Product ID :" ></springtags:message></strong></spring:label></td>
@@ -102,7 +102,7 @@ ${isAdminClickedProducts}
 					</td>
 					<td>
 					<c:if test="${not empty product.productid }">
-						<input type="submit" class="btn btn-info" value="<springtags:message text="Edit Product"/>" />
+						<input type="submit" class="btn btn-info" value="<springtags:message text="Save Product"/>" />
 					</c:if>
 					</td>
 				</tr>
@@ -122,6 +122,7 @@ ${isAdminClickedProducts}
 				</caption>
 				<thead>
 					<tr>
+					    <th>Product Image</th>
 						<th>Product ID</th>
 						<th>Product Name</th>
 						<th>Product Description</th>
@@ -137,6 +138,9 @@ ${isAdminClickedProducts}
 						<c:forEach items="${productlist}" var="product">
 
 							<tr>
+							<td><img alt=""
+											src="${pageContext.request.contextPath}/resources/images/${product.productid}.jpg"
+											height="100px" width="100px" /></td>
 								<td>${product.productid}</td>
 								<td>${product.productname}</td>
 								<td>${product.description}</td>
@@ -157,7 +161,7 @@ ${isAdminClickedProducts}
 
 			</table>
 		</div>
-		<%@ include file="/WEB-INF/views/footer.jsp"%>
+		<%@ include file="/WEB-INF/views/footeradmin.jsp"%>
 </body>
 </html>
 

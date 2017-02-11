@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.cakenationbackend.dao.CategoryDAO;
 import com.niit.cakenationbackend.dao.ProductDAO;
@@ -72,7 +74,10 @@ public class ProductController {
 					product.getProductid() + ".jpg");
 			productDao.save(product);
 		} else {
+			MultipartFile image = product.getFile();
 			productDao.update(product);
+			FileUtil.upload("D:/Ws/CakeNation/src/main/webapp/resources/images/", image,
+					product.getProductid() + ".jpg");
 
 			model.addAttribute("categorylist", this.categoryDao.list());
 			model.addAttribute("productlist", this.productDao.list());
@@ -100,7 +105,17 @@ public class ProductController {
 	@RequestMapping(value = "/manageedit/{productid}", method = RequestMethod.GET)
 	public String showEditProduct(@ModelAttribute("product") Product product, ModelMap model) {
 		log.debug("Starting Updating product");
+		MultipartFile image = product.getFile();
+		productDao.update(product);
+		FileUtil.upload("D:/Ws/CakeNation/src/main/webapp/resources/images/", image,
+				product.getProductid() + ".jpg");
+		model.addAttribute("categorylist", this.categoryDao.list());
+		model.addAttribute("productlist", this.productDao.list());
+		model.addAttribute("supplierlist", this.supplierDao.list());
+
 		return "/admin/Product";
 	}
+	
+	
 
 }

@@ -43,7 +43,9 @@ public class CartController {
 	    int cartSize =cartDao.list(loggedInUserid).size();
 		
 		if (cartSize==0) {
+			log.debug("decresing cart size");
 			model.addAttribute("errorMessage", "your cart is empty");
+			model.addAttribute("pleasebuy","true");
 		} else {
 			model.addAttribute("cartlist", this.cartDao.list(loggedInUserid));
 			model.addAttribute("totalAmount", cartDao.getTotalAmount(loggedInUserid)); 
@@ -59,7 +61,7 @@ public class CartController {
 	public String getCart(@PathVariable("productid") String productid, HttpSession session,@RequestParam("quantity") String qty, ModelMap model) {
 		log.debug("Starting of the method addtoCart");
 		Product product = productDao.get(productid);
-		cart.setPrice(product.getPrice());
+		cart.setPrice(product.getPrice()*(Integer.parseInt(qty)));
 		cart.setProductName(product.getProductname());
 		cart.setProductid(product.getProductid());
 		//cart.setQuantity(1);

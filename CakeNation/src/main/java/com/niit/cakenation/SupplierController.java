@@ -59,7 +59,7 @@ Logger log = LoggerFactory.getLogger(SupplierController.class);
 	}
 
 	@RequestMapping(value = "/managedeleteSupplier/{supplier_id}", method = RequestMethod.GET)
-	public String deleteSupplier(@PathVariable("supplier_id") String id, ModelMap model) {
+	public String deleteSupplier(@PathVariable("supplier_id") String id, Model model) {
 		log.debug("Starting Delete");
 
 		Supplier supplier=supplierDao.get(id);

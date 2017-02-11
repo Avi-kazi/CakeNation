@@ -228,7 +228,7 @@
 																			<div class="txt2">A cupcake is a small cake
 																				designed to serve one person, which may be baked in
 																				a small thin paper or aluminum cup.</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -243,11 +243,11 @@
 																			<figure>
 																			<img src="resources/images/banner2.jpg" alt=""
 																				class="img"></figure>
-																			<div class="txt2">The birthday cake has been an
-																				integral part of the birthday celebrations in
-																				western European countries since the middle of the
-																				19th century,</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt2">TSpecial occasion cake
+																				Recipes. Sort by: title, rating ... Chocolate Mousse
+																				Cake with Raspberries. star rating ...
+																</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -265,8 +265,8 @@
 																			<div class="txt2">A wedding cake is the
 																				traditional cake served at wedding receptions
 																				following dinner. In some parts of England, the
-																				wedding cake is served</div>
-																			<div class="txt3">read more</div>
+																				</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -284,7 +284,7 @@
 																			<div class="txt2">Special occasion cake
 																				Recipes. Sort by: title, rating ... Chocolate Mousse
 																				Cake with Raspberries. star rating ...</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -302,7 +302,7 @@
 																			<div class="txt2">A cupcake is a small cake
 																				designed to serve one person, which may be baked in
 																				a small thin paper or aluminum cup.</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -317,11 +317,11 @@
 																			<figure>
 																			<img src="resources/images/banner2.jpg" alt=""
 																				class="img"></figure>
-																			<div class="txt2">The birthday cake has been an
-																				integral part of the birthday celebrations in
-																				western European countries since the middle of the
-																				19th century,</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt2">Special occasion cake
+																				Recipes. Sort by: title, rating ... Chocolate Mousse
+																				Cake with Raspberries. star rating ...
+																				</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -336,11 +336,10 @@
 																			<figure>
 																			<img src="resources/images/banner3.jpg" alt=""
 																				class="img"></figure>
-																			<div class="txt2">A wedding cake is the
-																				traditional cake served at wedding receptions
-																				following dinner. In some parts of England, the
-																				wedding cake is served at a wedding breakfast</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt2">Special occasion cake
+																				Recipes. Sort by: title, rating ... Chocolate Mousse
+																				Cake with Raspberries. star rating ...</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -358,7 +357,7 @@
 																			<div class="txt2">Special occasion cake
 																				Recipes. Sort by: title, rating ... Chocolate Mousse
 																				Cake with Raspberries. star rating ...</div>
-																			<div class="txt3">read more</div>
+																			<div class="txt3"></div>
 																		</div>
 																	</a>
 																</div>
@@ -404,7 +403,7 @@
 							Shipping in India · Mid-Night Delivery Services: Midnight
 							Delivery, Same Day Delivery, Fixed Time Delivery</p>
 
-						<a href="#" class="button1">details</a>
+						<a href="#" class="button1"></a>
 
 					</div>
 					<div class="span4">
@@ -415,7 +414,7 @@
 							work with Special Days Cake Boutique. They did a beautiful semi
 							naked cake and it was amazing.</p>
 
-						<a href="#" class="button1">details</a>
+						<a href="#" class="button1"></a>
 
 					</div>
 					<div class="span4">
@@ -426,7 +425,7 @@
 							delivered in India same ... The Maya the Bee Special Cupcakes are
 							bright and cheery and bring in some ..</p>
 
-						<a href="#" class="button1">details</a>
+						<a href="#" class="button1"></a>
 
 					</div>
 				</div>

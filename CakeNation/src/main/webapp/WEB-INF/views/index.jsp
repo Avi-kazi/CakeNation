@@ -58,7 +58,14 @@
 		
 	<%-- 	<c:if test="${!empty selectedProduct.productname}">
 		<%@ include file="/WEB-INF/views/SpecificProduct.jsp" %></c:if> --%>
+		<c:if test="${ pleasebuy==true}">
+		<span class="glyphicon glyphicon-shopping-cart"></span><a href="myCart">My Cart</a><i class="fa fa-shopping-cart">${cartSize }</i>
+		<li allign="right"><a href="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		<div class="alert alert-error"> 
+		${errorMessage}</div>
+		<%@ include file="gallery.jsp"%>
 		
+		</c:if>
 		<c:if test="${invalidCredentials==true}">
 		<div class="alert alert-error"> 
 		${errorMessage}<%@ include file="login.jsp"%></div>
@@ -66,15 +73,19 @@
 		</c:if>
 		
 			
-				 <c:if test="${isUserClickedRegisterHere==true}">
-					<%@ include file="registration.jsp"%>
-
-				</c:if>
+				 
 			
-
 			
-
-                  
+<c:if test="${existuser==true}">
+		<div class="alert alert-error"> 
+		${errorMessage}<%@ include file="registration.jsp"%></div>
+		
+		</c:if>
+                  <c:if test="${newuser==true}">
+		<div class="alert alert-error"> 
+		${successMessage}<%@ include file="registration.jsp"%></div>
+		
+		</c:if>
 				
 					<c:if test="${isAdminClickedCategories==true}">
 						<%@ include file="/WEB-INF/views/admin/admin.jsp"%>

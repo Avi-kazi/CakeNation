@@ -110,7 +110,7 @@ ${isAdminClickedSuppliers}
        				
        				<td>
        				<c:if test="${not empty supplier.supplier_id}">
-						<input type="submit" class="btn btn-info" value="<springtags:message text="Edit Supplier"/>" />
+						<input type="submit" class="btn btn-info" value="<springtags:message text="Save Supplier"/>" />
 					</c:if>
 					</td> 
 					</tr>
@@ -156,7 +156,7 @@ ${isAdminClickedSuppliers}
 
 		</table>
 	</div>
-	<%@ include file="/WEB-INF/views/footer.jsp"%>
+	<%@ include file="/WEB-INF/views/footeradmin.jsp"%>
 
 </body>
 </html>

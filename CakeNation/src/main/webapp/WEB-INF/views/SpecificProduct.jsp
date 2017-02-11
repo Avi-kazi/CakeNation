@@ -110,13 +110,14 @@
 											<td align="center"><i>Quantity </i></td>
 											<td>
 												<form id="addToCart"
-													action="${pageContext.request.contextPath}/myCart/add/${product.productid}" method="get">
+													action="${pageContext.request.contextPath}/myCart/add/${product.productid}"
+													method="get">
 													<select name="quantity">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 													</select>
-													
+
 												</form> <!--  <input type="number" value=1 name="quantity"> -->
 											</td>
 									</tbody>
@@ -169,8 +170,7 @@
 									<div class="span4 block3">
 
 										<div class="txt1">
-											Top tier of the<br>
-											<span>cake</span> tradition
+											Top tier of the<br> <span>cake</span> tradition
 										</div>
 
 										<div class="txt2">Vibrant and vivacious, this Royal
@@ -208,16 +208,14 @@
 
 								<div class="social_wrapper">
 									<ul class="social clearfix">
-										<li><a href="#"><img
+										<li><a href="https://www.facebook.com/"><img
 												src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic1.png'></a></li>
-										<li><a href="#"><img
+										<li><a href="https://twitter.com/"><img
 												src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic2.png'></a></li>
-										<li><a href="#"><img
-												src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic3.png'></a></li>
-										<li><a href="#"><img
+
+										<li><a href="https://www.youtube.com/"><img
 												src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic4.png'></a></li>
-										<li><a href="#"><img
-												src='<c:out value="${pageContext.request.contextPath}"/>/resources/images/social_ic5.png'></a></li>
+
 									</ul>
 								</div>
 
