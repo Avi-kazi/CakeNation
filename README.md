@@ -16,7 +16,7 @@ Technologies used for development are
 * CSS
 * JavaScript
 * Bootstrap
-* XML
+
 
 ### Additional Tool
 * Eclipse IDE 
