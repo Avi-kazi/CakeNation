@@ -1,5 +1,5 @@
 # Project Title
-An E-Commerse web site has been developed in java language using spring mvc framework.
+An E-Commerce web site has been developed in java language using spring mvc framework.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running
